@@ -7,7 +7,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 
-class CustomerController extends Controller
+class VendorsController extends Controller
 {
     public function actionIndex()
     {
