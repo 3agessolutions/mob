@@ -1,0 +1,11 @@
+.sidebar-menu>li>a>.fa {
+    font-size: 20px;
+    float: left;
+}
+.sidebar-menu li>a {
+    font-size: 14px;
+}
+.sidebar-menu li>a>span{
+    display: inline-block;
+    margin-left: 10px;
+}

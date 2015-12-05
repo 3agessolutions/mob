@@ -1,36 +1,39 @@
 <?php
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
 /* @var $this yii\web\View */
 $this->title = 'Marriage On Budget - Vendors';
 ?>
-<section class="content-header">
-    <h1>Vendors</h1>
-    <!--<ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">General Elements</li>
-    </ol>-->
-</section>
 <section class="content">
     <div class="nav-tabs-custom">
         <!-- Tabs within a box -->
+        <h3></h3>
         <ul class="nav nav-tabs pull-right">
-            <li><a href="#vendor-location" data-toggle="tab">Location</a></li>
+            <li><a href="#vendor-service" data-toggle="tab">Services</a></li>
             <li class="active"><a href="#vendor-detail" data-toggle="tab">Details</a></li>
+            <li class="pull-left header">Add Vendor</li>
         </ul>
         <div class="tab-content">
             <!-- Morris chart - Sales -->
             <div class="tab-pane active" id="vendor-detail">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                        <div class="col-sm-10">
-                            <input class="form-control" id="inputEmail3" placeholder="Email" type="email">
+                <!--<form class="form-horizontal">-->
+                    <?php $form = ActiveForm::begin([
+                        'id' => 'vendor-form',
+                        'options' => [
+                            'class' => 'form-horizontal',
+                            'enctype' => 'multipart/form-data'
+                        ]
+                    ]); ?>
+                        <?= $form->field($model, 'vendor_title') ?>
+                        <?= $form->field($model, 'vendor_description') ?>
+                        <div class="form-group">
+                            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
                         </div>
-                    </div>
-                </form>
+                    <?php ActiveForm::end(); ?>
+                <!--</form>-->
             </div>
-            <div class="tab-pane" id="vendor-location"></div>
+            <div class="tab-pane" id="vendor-service"></div>
         </div>
     </div>
-    
 </section>

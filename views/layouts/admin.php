@@ -28,6 +28,12 @@ AdminAsset::register($this);
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <!-- User Account: style can be found in dropdown.less -->
@@ -61,8 +67,12 @@ AdminAsset::register($this);
         <section class="sidebar">
           <ul class="sidebar-menu">
             <li class="header">Quick Links</li>
-            <li><a href="#"><i class="fa fa-th-list text-red"></i> <span>Events</span></a></li>
-            <li><a href="/vendors"><i class="fa fa-user text-yellow"></i> <span>Vendors</span></a></li>
+            <li><a href="/vendors"><i class="fa fa-user fa-4 text-red"></i> <span>Vendors</span></a></li>
+            <li><a href="#"><i class="fa fa-th-list fa-4 text-red"></i> <span>Categories</span></a></li>
+            <li><a href="#"><i class="fa fa-gears fa-3 text-red"></i> <span>Services</span></a></li>
+            <li class="header">User &amp; Permissions</li>
+            <li><a href="#"><i class="fa fa-users fa-3 text-red"></i> <span>Users</span></a></li>
+            <li><a href="#"><i class="fa fa-wrench fa-3 text-red"></i> <span>Permissions</span></a></li>
           </ul>
         </section>
       </aside>

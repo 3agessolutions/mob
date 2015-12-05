@@ -1,0 +1,58 @@
+table title: mob_categories
+---------------------------
+
+columns:
+--------
+
+category_id                 BIGINT          PRIMARY_KEY NOT NULL
+category_title              VARCHAR         NOT NULL
+category_desc               VARCHAR         
+
+
+table title: mob_services
+------------------------
+
+columns:
+--------
+
+service_id                  BIGINT          PRIMARY_KEY NOT NULL
+service_category_id         BIGINT          NOT NULL
+service_title               VARCHAR         NOT NULL
+
+
+
+table title: mob_vendor_master
+------------------------------
+
+columns :
+---------
+
+vendor_id                   BIGINT          PRIMARY_KEY NOT NULL
+vendor_title                VARCHAR         NOT NULL
+vendor_image                BLOB            
+vendor_description          VARCHAR         
+vendor_categories           VARCHAR         NOT NULL (COMMA SEPERATED category ID)
+vendor_phone                VARCHAR         NOT NULL
+vendor_email                VARCHAR
+vendor_url                  VARCHAR
+vendor_fb                   VARCHAR
+vendor_twitter              VARCHAR
+vendor_google               VARCHAR
+
+
+table title: mob_vendor_service
+------------------------------
+
+columns :
+---------
+
+vendor_service_id           BIGINT          PRIMARY_KEY NOT NULL
+vendor_id                   BIGINT          FOREIGN_KEY(REFERNCE vendor_master table)
+vendor_category_services    BIGINT          (COMMA SEPERATED services id)
+
+
+
+
+
+
+
