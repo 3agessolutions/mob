@@ -67,8 +67,8 @@ AdminAsset::register($this);
         <section class="sidebar">
           <ul class="sidebar-menu">
             <li class="header">Quick Links</li>
-            <li><a href="/vendors"><i class="fa fa-user fa-4 text-red"></i> <span>Vendors</span></a></li>
-            <li><a href="#"><i class="fa fa-th-list fa-4 text-red"></i> <span>Categories</span></a></li>
+            <li><a href="<?= Yii::getAlias('@web') ?>/vendors"><i class="fa fa-user fa-4 text-red"></i> <span>Vendors</span></a></li>
+            <li><a href="<?= Yii::getAlias('@web') ?>/category"><i class="fa fa-th-list fa-4 text-red"></i> <span>Categories</span></a></li>
             <li><a href="#"><i class="fa fa-gears fa-3 text-red"></i> <span>Services</span></a></li>
             <li class="header">User &amp; Permissions</li>
             <li><a href="#"><i class="fa fa-users fa-3 text-red"></i> <span>Users</span></a></li>
@@ -80,13 +80,15 @@ AdminAsset::register($this);
       <div class="content-wrapper">
         <?php $this->beginBody() ?>
         <?= $content ?>
-        <?php $this->endBody() ?>
+        <?php
+          $this->registerJsFile(Yii::getAlias('@web') . '/web/js/jQuery-2.1.4.min.js', []);
+          $this->registerJsFile(Yii::getAlias('@web') . '/web/js/bootstrap.min.js', []);
+          $this->registerJsFile(Yii::getAlias('@web') . '/web/js/plugins/fastclick/fastclick.min.js', []);
+          $this->endBody();
+        ?>
       </div>
     </div>
     <?php
-      $this->registerJsFile(Yii::getAlias('@web') . '/web/js/jQuery-2.1.4.min.js', []);
-      $this->registerJsFile(Yii::getAlias('@web') . '/web/js/bootstrap.min.js', []);
-      $this->registerJsFile(Yii::getAlias('@web') . '/web/js/plugins/fastclick/fastclick.min.js', []);
       $this->registerJsFile(Yii::getAlias('@web') . '/web/js/app.min.js', []);
     ?>
   </body>

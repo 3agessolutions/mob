@@ -9,3 +9,13 @@
     display: inline-block;
     margin-left: 10px;
 }
+
+/** form with padding **/
+.has-padding {
+    padding: 0px 15px;
+}
+
+/** FOrm control overriding **/
+.form-control {
+   
+}
