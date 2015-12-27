@@ -91,6 +91,7 @@ AdminAsset::register($this);
     <?php
       $this->registerJsFile(Yii::getAlias('@web') . '/web/js/app.min.js', []);
     ?>
+    <div class="cssload-loader">Loading</div>
   </body>
 </html>
 <?php $this->endPage() ?>

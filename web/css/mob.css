@@ -19,3 +19,13 @@
 .form-control {
    
 }
+
+
+/* Grid view */
+.grid-view > div,
+.grid-view > ul {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+

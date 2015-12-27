@@ -21,5 +21,23 @@ class Category extends ActiveRecord
         return 'mob_categories';
     }    
     
+    public function beforeSave($insert) 
+    {
+        if($insert) 
+        {
+            if($this->getCategoryByName($this->category_title)) 
+                return false;
+        }
+        return true;
+    }
     
+    public function getCategoryByName($title) 
+    {
+        return Category::find()->where(['category_title' => $title])->one();
+    }
+    
+    public function removeCategory() 
+    {
+        
+    }
 }
