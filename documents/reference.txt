@@ -1,1 +1,9 @@
 http://www.bsourcecode.com/yiiframework2/gridview-in-yiiframework-2-0/
+
+
+api key for google maps api
+---------------------------
+AIzaSyD_NsqR4PONT18vFgIC1z2Tb0FwIqkXtqI - server key
+
+AIzaSyDyKy7OEPb1e5Nh8CqvSIjgvGQFM9PKMjU - browser key
+

@@ -15,7 +15,7 @@ $this->title = 'Marriage On Budget - Vendors';
         <div class="tab-content no-padding bottom-padding">
             <!-- Morris chart - Sales -->
             <div class="tab-pane active has-padding" id="vendor-detail">
-                <div id="vendor-basic-detail">
+                <div id="vendor-basic-detail" style="display: none;">
                     <!--<form class="form-horizontal">-->
                         <?php if (Yii::$app->session->hasFlash('vendordetail')): ?>
                             <div id="vendor-success" class="has-padding text-green">Vendor basic details added successfully</div>
@@ -51,14 +51,37 @@ $this->title = 'Marriage On Budget - Vendors';
                         <?php ActiveForm::end(); ?>
                     <!--</form>-->
                 </div>
-                <div id="vendor-basic-location" style="display: none;">
-                    
+                <div id="vendor-basic-location"  style="display: block;">
+                    <br/>
+                    <div id="vendor-map-container">
+                        <input type="text" value="" name="vendor-location" id="vendor-position" placeholder="Search Location"/>
+                        <div id="vendor-map" style="height: 400px;"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
+<script type="text/javascript">
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+            console.log({lat: position.coords.latitude, lng: position.coords.longitude});
+            var map = new google.maps.Map(document.getElementById('vendor-map'), {
+                center: {lat: 11.350972915344155, lng: 77.72875294089317},
+                zoom: 12
+            });
+            
+            map.addListener('click', function(e) {
+                console.log(e.latLng.lat());
+                console.log(e.latLng.lng());
+            });    
+        });
+    }
+    function initmap() {
+        
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyKy7OEPb1e5Nh8CqvSIjgvGQFM9PKMjU&libraries=places&callback=initmap"></script>
 <?php
     $this->registerJs("$(function () {
         $(document).on('submit', '#vendor-form', function () {
@@ -76,6 +99,11 @@ $this->title = 'Marriage On Budget - Vendors';
                             $(self).get(0).reset();
                             $('#vendor-basic-detail').hide();
                             $('#vendor-basic-location').show();
+                            var map = new google.maps.Map(document.getElementById('vendor-map'), {
+                                center: {lat: -34.397, lng: 150.644},
+                                zoom: 8  
+                            });
+                            console.log(map);
                         }
                     } else {
                         $('#msg-show').text('Error in inserting record.').show();                      

@@ -40,3 +40,23 @@
 .grid-view td:last-child a {
 	padding-right: 10px;
 }
+
+
+/** Map view **/
+#vendor-map-container {
+	position: relative;
+	height: 400px;
+}
+#vendor-map-container input#vendor-position {
+	position: absolute;
+	width: 300px;
+	height: 32px;
+	z-index: 99999999999;
+	left: 150px;
+	top: 10px;
+	padding: 0px 10px;
+	border: 1px solid #dfdfdf;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}
