@@ -14,8 +14,7 @@ use app\models\Category;
 
 class CategoryController extends Controller
 {
-   
-    public function actionIndex()
+	public function actionIndex()
     {
         $this->layout='admin';
         $categoryDataProvider = new ActiveDataProvider([
@@ -67,11 +66,15 @@ class CategoryController extends Controller
     
     public function actionDelete($id) 
     {
-        $category = Category::find()->where(['category_id' => $id])->one();
+    	
+        /*$category = Category::find()->where(['category_id' => $id])->one();
         if($category->delete() >= 0) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             return ['success' => true];
-        }
+        }*/
+        echo 'new category';
+        $category = new Category();
+        return $this->render('add', ['model' => $category]);
     }
     
     public function actionView() 

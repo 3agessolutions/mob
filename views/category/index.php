@@ -9,9 +9,12 @@ $this->title = 'Marriage On Budget - Vendors';
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Categories</h3>
-            <a href="<?= Yii::getAlias('@web') ?>/category/add" title="Add Vendor" class="btn btn-primary pull-right">Add Category</a>
+            <a href="<?= Yii::getAlias('@web') ?>/category/add" title="Add Category" class="btn btn-primary pull-right">Add Category</a>
         </div>
         <div class="box-body no-padding">
+        	<?php 
+        	Pjax::begin(['id'=>'pjax-categories']); 
+			?>
             <?= GridView::widget([
                 'dataProvider' => $categories,
                 'columns' => [
@@ -23,19 +26,14 @@ $this->title = 'Marriage On Budget - Vendors';
                         'header'=>'Action',     
                         'template' => '{delete}{link}',
                         'urlCreator' => function( $action, $model, $key, $index ) {
-                            return 'category' . '/' . $action . '/' . $key;
+                            return Yii::getAlias('@web') . '/category' . '/' . $action . '/' . $key;
                         }
                     ]
                 ],
             ]); ?>
-            <!--<table class="table table-bordered">
-                <tr>
-                    
-                </tr>
-                <tr>
-                    <td colspan="4">No record found</td>
-                </tr>
-            </table>-->
+            <?php 
+            	Pjax::end(); 
+            ?>
         </div>
     </div>
 </section>

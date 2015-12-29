@@ -9,7 +9,7 @@ $this->title = 'Marriage On Budget - Vendors';
     <div class="box">
         <div class="box-header">
             <h3 class="box-title"></h3>
-            <a href="/vendors/add" title="Add Vendor" class="btn btn-primary pull-right">Add Vendor</a>
+            <a href="<?= Yii::getAlias('@web') ?>/vendors/add" title="Add Vendor" class="btn btn-primary pull-right">Add Vendor</a>
         </div>
         <div class="box-body no-padding">
             <table class="table table-bordered">
