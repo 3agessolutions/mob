@@ -14,11 +14,25 @@ use app\models\Category;
 
 class CategoryController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['GET'],
+                ],
+            ],
+        ];
+    }
 	public function actionIndex()
     {
         $this->layout='admin';
         $categoryDataProvider = new ActiveDataProvider([
-            'query' => Category::find()
+            'query' => Category::find(),
+            'pagination' => [
+                'pageSize' => 10,
+            ]
         ]);
         
         return $this->render('index', ['categories' => $categoryDataProvider]);
@@ -67,17 +81,15 @@ class CategoryController extends Controller
     public function actionDelete($id) 
     {
     	
-        /*$category = Category::find()->where(['category_id' => $id])->one();
+        $category = Category::find()->where(['category_id' => $id])->one();
         if($category->delete() >= 0) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
-            return ['success' => true];
-        }*/
-        echo 'new category';
-        $category = new Category();
-        return $this->render('add', ['model' => $category]);
+            //Yii::$app->response->format = Response::FORMAT_JSON;
+            //return ['success' => true];
+            $this->redirect(Yii::getAlias('@web') . '/category/index');
+        }
     }
     
-    public function actionView() 
+    public function actionView($id) 
     {
         $this->layout='admin';
         return $this->render('view');

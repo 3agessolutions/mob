@@ -1,6 +1,7 @@
 <?php
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\grid\ActionColumn;
 
 /* @var $this yii\web\View */
 $this->title = 'Marriage On Budget - Vendors';
@@ -22,11 +23,11 @@ $this->title = 'Marriage On Budget - Vendors';
                     'category_title',
                     'category_desc',
                     [
-                        'class' => 'yii\grid\ActionColumn',
-                        'header'=>'Action',     
-                        'template' => '{delete}{link}',
+                        'class' => ActionColumn::className(),
+                        'header'=>'Action',
+                        'template' => '{delete}{link} {view}{link}',
                         'urlCreator' => function( $action, $model, $key, $index ) {
-                            return Yii::getAlias('@web') . '/category' . '/' . $action . '/' . $key;
+                            return Yii::getAlias('@web') . '/category/' . $action . '/' . intval($key);
                         }
                     ]
                 ],

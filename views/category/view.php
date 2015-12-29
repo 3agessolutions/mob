@@ -1,0 +1,1 @@
+<h2>Show the vendors associated with this category</h2>

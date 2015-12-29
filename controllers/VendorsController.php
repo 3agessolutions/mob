@@ -3,10 +3,13 @@
 namespace app\controllers;
 
 use Yii;
+use yii\web\Response;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\widgets\ActiveForm;
 use yii\filters\VerbFilter;
 use app\models\Vendors;
+use app\models\Category;
 
 class VendorsController extends Controller
 {
@@ -21,7 +24,41 @@ class VendorsController extends Controller
         $this->layout='admin';
         $vendors = new Vendors();
         
-        return $this->render('add', ['model' => $vendors]);
+        $categoriesRecord = new Category();
+        $categories = array();
+        foreach ($categoriesRecord->getAllCategories() as $category => $value) {
+            $categories[$value['category_id']] = $value['category_title']; 
+        }
+        
+        if (Yii::$app->request->isAjax) {
+            if ($vendors->load(Yii::$app->request->post())) {
+                Yii::$app->response->format = Response::FORMAT_JSON;
+                return ['success' => $vendors->save(), 'info' => 'basic'];                
+            }
+            
+            return $this->renderAjax('add', [
+                'model' => $vendors, 'category' => $categories
+            ]);
+            
+        } else {
+            
+            $this->layout='admin';
+            if ($vendors->load(Yii::$app->request->post()) && $vendors->save()) {
+                Yii::$app->session->setFlash('categorysave');
+                return $this->refresh();
+            }
+            return $this->render('add', ['model' => $vendors, 'category' => $categories]);
+        }
+    }
+    
+    public function actionAddServices()
+    {
+        
+    }
+    
+    public function actionAddLocation() 
+    {
+        
     }
     
     public function actionSave() 

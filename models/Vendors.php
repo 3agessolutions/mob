@@ -5,24 +5,17 @@ use yii\db\ActiveRecord;
 
 class Vendors extends ActiveRecord
 {
-    protected $vendor_title;
-    protected $vendor_image;
-    protected $vendor_description;
-    protected $vendor_categories;
-    protected $vendor_phone;
-    protected $vendor_email;
-    protected $vendor_url;
-    protected $vendor_fb;
-    protected $vendor_twitter;
-    protected $vendor_google;
-    
     public function rules()
     {
         return [
             [['vendor_title', 'vendor_description', 'vendor_categories',
                 'vendor_phone', 'vendor_email', 'vendor_fb',
                 'vendor_twitter', 'vendor_google'], 'required'],
+            //[['vendor_image'], 'file', 'skipOnEmpty' => TRUE, 'extensions' => 'png, jpg', 'maxFiles' => 1],
             [['vendor_email'], 'email'],
+            [['vendor_fb'], 'url'],
+            [['vendor_twitter'], 'url'],
+            [['vendor_google'], 'url'],
             [['vendor_url'], 'url']
         ];
     }
@@ -31,4 +24,24 @@ class Vendors extends ActiveRecord
     {
         return 'mob_vendor_master';
     }    
+}
+
+class VendorsLocation extends ActiveRecord
+{
+    public function rules()
+    {
+        return [
+            [['vendor_latitude', 'vendor_longitude'], 'required']
+        ];
+    }
+
+    public static function tableName()
+    {
+        return 'mob_vendor_location';
+    }   
+}
+
+class VendorsServcies extends ActiveRecord
+{
+    
 }

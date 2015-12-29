@@ -36,6 +36,10 @@ class Category extends ActiveRecord
         return Category::find()->where(['category_title' => $title])->one();
     }
     
+    public function getAllCategories() 
+    {
+        return Category::find()->all();
+    }
     public function removeCategory() 
     {
         

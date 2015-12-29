@@ -28,10 +28,8 @@ $this->title = 'Marriage On Budget - Category';
         ]); 
         ?>
         <div class="box-body">
-            <div class="has-padding">
-                <?= $form->field($model, 'category_title'); ?>
-                <?= $form->field($model, 'category_desc')->textarea(); ?>
-            </div>
+            <?= $form->field($model, 'category_title'); ?>
+            <?= $form->field($model, 'category_desc')->textarea(); ?>
             <p id="msg-show" class="text-green"></p>
         </div>
         <div class="box-footer">

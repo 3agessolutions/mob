@@ -14,18 +14,29 @@
 .has-padding {
     padding: 0px 15px;
 }
+.no-padding {
+	padding: 0px;
+}
+.bottom-padding {
+	padding-bottom: 10px !important;	
+}
 
 /** FOrm control overriding **/
 .form-control {
    
 }
-
+.form-horizontal .form-group {
+	margin-right: 0px;
+	margin-left: 0px;
+}
 
 /* Grid view */
 .grid-view > div,
 .grid-view > ul {
     padding-left: 10px;
     padding-right: 10px;
+    margin-top: 0px;
 }
-
-
+.grid-view td:last-child a {
+	padding-right: 10px;
+}
