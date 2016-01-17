@@ -52,7 +52,18 @@ vendor_category_services    BIGINT          (COMMA SEPERATED services id)
 
 
 
+table title: mob_vendor_location
+------------------------------
 
+columns :
+---------
 
-
-
+vendor_location_id           BIGINT          PRIMARY_KEY NOT NULL
+vendor_id      	             BIGINT          FOREIGN_KEY(REFERNCE vendor_master table)
+vendor_latitude				 DOUBLE
+vendor_longitude			 DOUBLE
+vendor_city					 VARCHAR
+vendor_state				 VARCHAR
+vendor_country				 VARCHAR
+vendor_pincode				 INT(6)
+vendor_display_address		 VARCHAR(512)

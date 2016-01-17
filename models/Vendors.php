@@ -26,20 +26,6 @@ class Vendors extends ActiveRecord
     }    
 }
 
-class VendorsLocation extends ActiveRecord
-{
-    public function rules()
-    {
-        return [
-            [['vendor_latitude', 'vendor_longitude'], 'required']
-        ];
-    }
-
-    public static function tableName()
-    {
-        return 'mob_vendor_location';
-    }   
-}
 
 class VendorsServcies extends ActiveRecord
 {
