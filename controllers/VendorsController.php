@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Response;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\widgets\ActiveForm;
@@ -15,9 +16,16 @@ use app\models\Category;
 class VendorsController extends Controller
 {
     public function actionIndex()
-    {
+    {   
         $this->layout='admin';
-        return $this->render('index');
+        $vendorDataProvider = new ActiveDataProvider([
+            'query' => Vendors::find(),
+            'pagination' => [
+                'pageSize' => 10,
+            ]
+        ]);
+        
+        return $this->render('index', ['vendors' => $vendorDataProvider]);
     }
     
     public function actionAdd() 
@@ -77,11 +85,6 @@ class VendorsController extends Controller
         }
     }
     
-    public function actionAddServices()
-    {
-        
-    }
-    
     public function actionAddlocation() 
     {
         $this->layout='admin';
@@ -110,6 +113,16 @@ class VendorsController extends Controller
             return $this->render('add', ['location' => $location]);
         }
     }
+    public function actionLocation($id) 
+    {
+        $this->layout='admin';
+        $vendor = Vendors::find()->where(['vendor_id' => $id])->one();
+        
+        $location = VendorsLocation::find()->where(['vendor_id' => $id])->one();
+        if($location == null)
+            $location = new VendorsLocation();
+        return $this->render('location', ['vendor' => $vendor, 'location' => $location]);
+    }
     
     public function actionEdit() 
     {
@@ -119,7 +132,7 @@ class VendorsController extends Controller
     
     public function actionDelete() 
     {
-        
+        /* Delete all vendors related table */
     }
     
     public function actionView() 

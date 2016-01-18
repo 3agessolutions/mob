@@ -67,9 +67,9 @@ AdminAsset::register($this);
         <section class="sidebar">
           <ul class="sidebar-menu">
             <li class="header">Quick Links</li>
-            <li><a href="<?= Yii::getAlias('@web') ?>/vendors"><i class="fa fa-user fa-4 text-red"></i> <span>Vendors</span></a></li>
-            <li><a href="<?= Yii::getAlias('@web') ?>/category"><i class="fa fa-th-list fa-4 text-red"></i> <span>Categories</span></a></li>
-            <li><a href="#"><i class="fa fa-gears fa-3 text-red"></i> <span>Services</span></a></li>
+            <li><a href="<?= Yii::getAlias('@web') ?>/vendors"><i class="fa fa-user fa-4 text-red"></i> <span><?= APP_VENDOR_TITLE ?></span></a></li>
+            <li><a href="<?= Yii::getAlias('@web') ?>/category"><i class="fa fa-th-list fa-4 text-red"></i> <span><?= APP_CATEGORY_TITLE ?></span></a></li>
+            <li><a href="#"><i class="fa fa-gears fa-3 text-red"></i> <span><?= APP_SERVICES_TITLE ?></span></a></li>
             <li class="header">User &amp; Permissions</li>
             <li><a href="#"><i class="fa fa-users fa-3 text-red"></i> <span>Users</span></a></li>
             <li><a href="#"><i class="fa fa-wrench fa-3 text-red"></i> <span>Permissions</span></a></li>

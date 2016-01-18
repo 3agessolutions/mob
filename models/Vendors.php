@@ -25,9 +25,3 @@ class Vendors extends ActiveRecord
         return 'mob_vendor_master';
     }    
 }
-
-
-class VendorsServcies extends ActiveRecord
-{
-    
-}

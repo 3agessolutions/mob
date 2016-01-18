@@ -1,0 +1,28 @@
+public function actionAddlocation() 
+    {
+        $this->layout='admin';
+        $location = new VendorsLocation();
+        
+        if (Yii::$app->request->isAjax) {
+            if ($location->load(Yii::$app->request->post())) {
+                Yii::$app->response->format = Response::FORMAT_JSON;
+                if($location->save()) {
+                    return ['success' => TRUE, 'info' => 'services'];
+                } else {
+                    return ['success' => FALSE, 'info' => 'basic'];
+                }               
+            }
+            
+            return $this->renderAjax('add', [
+                'location' => $location
+            ]);
+            
+        } else {            
+            $this->layout='admin';
+            if ($location->load(Yii::$app->request->post()) && $location->save()) {
+                Yii::$app->session->setFlash('vendorlocation');
+                return $this->refresh();
+            }
+            return $this->render('add', ['location' => $location]);
+        }
+    }
