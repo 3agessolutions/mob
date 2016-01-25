@@ -13,7 +13,7 @@ $this->title = 'Marriage On Budget - Vendors';
 </section>
 <section class="content">
     <div class="box">
-        <div class="box-header">
+        <div class="box-header with-border">
             <h3 class="box-title"><?php echo APP_VENDOR_ADD_LOCATION ?></h3>
         </div>
         <div class="box-body">
@@ -162,4 +162,3 @@ $this->title = 'Marriage On Budget - Vendors';
             });
         });", $this::POS_END);  
 ?>
-	

@@ -12,7 +12,7 @@ class Category extends ActiveRecord
     public function rules()
     {
         return [
-            [['category_desc', 'category_title'], 'required']
+            [['category_desc', 'category_title', 'is_system'], 'required']
         ];
     }
 

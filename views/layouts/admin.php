@@ -24,7 +24,8 @@ AdminAsset::register($this);
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Marriage</b> on Budget</span>
+          <!--<span class="logo-lg"><b>Marriage</b> on Budget</span>-->
+          <span class="logo-lg"><?= APP_TITLE ?></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -67,12 +68,12 @@ AdminAsset::register($this);
         <section class="sidebar">
           <ul class="sidebar-menu">
             <li class="header">Quick Links</li>
-            <li><a href="<?= Yii::getAlias('@web') ?>/vendors"><i class="fa fa-user fa-4 text-red"></i> <span><?= APP_VENDOR_TITLE ?></span></a></li>
-            <li><a href="<?= Yii::getAlias('@web') ?>/category"><i class="fa fa-th-list fa-4 text-red"></i> <span><?= APP_CATEGORY_TITLE ?></span></a></li>
-            <li><a href="#"><i class="fa fa-gears fa-3 text-red"></i> <span><?= APP_SERVICES_TITLE ?></span></a></li>
+            <li><a href="<?= Yii::getAlias('@web') ?>/vendors"><i class="fa fa-user fa-4 text-blue"></i> <span><?= APP_VENDOR_TITLE ?></span></a></li>
+            <li><a href="<?= Yii::getAlias('@web') ?>/category"><i class="fa fa-th-list fa-4 text-blue"></i> <span><?= APP_CATEGORY_TITLE ?></span></a></li>
+            <li><a href="#"><i class="fa fa-gears fa-3 text-blue"></i> <span><?= APP_SERVICES_TITLE ?></span></a></li>
             <li class="header">User &amp; Permissions</li>
-            <li><a href="#"><i class="fa fa-users fa-3 text-red"></i> <span>Users</span></a></li>
-            <li><a href="#"><i class="fa fa-wrench fa-3 text-red"></i> <span>Permissions</span></a></li>
+            <li><a href="#"><i class="fa fa-users fa-3 text-blue"></i> <span>Users</span></a></li>
+            <li><a href="#"><i class="fa fa-wrench fa-3 text-blue"></i> <span>Permissions</span></a></li>
           </ul>
         </section>
       </aside>

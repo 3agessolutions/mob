@@ -12,14 +12,23 @@ use yii\filters\VerbFilter;
 use app\models\Vendors;
 use app\models\VendorsLocation;
 use app\models\Category;
+use yii\db\Query;
 
 class VendorsController extends Controller
 {
     public function actionIndex()
     {   
         $this->layout='admin';
+        
+        $query = new Query();
+        $vendors = $query
+            ->select('mob_vendor_master.*, mob_categories.category_title')
+            ->from('mob_vendor_master')
+            ->leftJoin('mob_categories', '`mob_vendor_master`.`vendor_categories` = `mob_categories`.`category_id`');
+        
         $vendorDataProvider = new ActiveDataProvider([
-            'query' => Vendors::find(),
+            //'query' => Vendors::find(),
+            'query' => $vendors,
             'pagination' => [
                 'pageSize' => 10,
             ]
@@ -88,9 +97,17 @@ class VendorsController extends Controller
     public function actionAddlocation() 
     {
         $this->layout='admin';
-        $location = new VendorsLocation();
+        //$location = new VendorsLocation();
         
         if (Yii::$app->request->isAjax) {
+            $request = Yii::$app->request->post('VendorsLocation');
+            $vendorId = intval($request['vendor_id']);
+            $location = VendorsLocation::find()->where(['vendor_id' => $vendorId])->one();
+            
+            if($location == NULL) {
+                $location = new VendorsLocation();
+            }
+            
             if ($location->load(Yii::$app->request->post())) {
                 Yii::$app->response->format = Response::FORMAT_JSON;
                 if($location->save()) {
@@ -103,14 +120,6 @@ class VendorsController extends Controller
             return $this->renderAjax('add', [
                 'location' => $location
             ]);
-            
-        } else {            
-            $this->layout='admin';
-            if ($location->load(Yii::$app->request->post()) && $location->save()) {
-                Yii::$app->session->setFlash('vendorlocation');
-                return $this->refresh();
-            }
-            return $this->render('add', ['location' => $location]);
         }
     }
     public function actionLocation($id) 
@@ -122,6 +131,14 @@ class VendorsController extends Controller
         if($location == null)
             $location = new VendorsLocation();
         return $this->render('location', ['vendor' => $vendor, 'location' => $location]);
+    }
+    
+    public function actionDetails($id)
+    {
+        $this->layout = 'admin';
+        //$vendor = Vendors::find()->where(['vendor_id' => $id])->one();
+        $vendors = Vendors::getVendorDetail($id);
+        return $this->render('details', ['vendors' => $vendors]);
     }
     
     public function actionEdit() 

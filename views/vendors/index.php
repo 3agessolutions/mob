@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\grid\ActionColumn;
+use app\utility\CommonUtility;
 
 /* @var $this yii\web\View */
 $this->title = 'Marriage On Budget - Vendors';
@@ -17,7 +18,7 @@ $this->title = 'Marriage On Budget - Vendors';
             <a href="<?= Yii::getAlias('@web') ?>/vendors/add" title="Add Vendor" class="btn btn-primary pull-right">Add Vendor</a>
         </div>
         <div class="box-body no-padding">
-        	<?php 
+            <?php 
         	Pjax::begin(['id'=>'pjax-vendors']); 
 			?>
             <?= GridView::widget([
@@ -36,17 +37,17 @@ $this->title = 'Marriage On Budget - Vendors';
                     	'buttons' => [
                     		'location' => function ($url,$model) {
                     			return Html::a(
-                    				'<span>Add/Modify Location</span>', 
-                    				Yii::getAlias('@web') . '/vendors/location' . '/' . $model->vendor_id);
+                    				'<span class="fa fa-map-marker"></span>', 
+                    				Yii::getAlias('@web') . '/vendors/location' . '/' . $model['vendor_id']);
                     		},
                     		'services' => function ($url,$model,$key) {
                     				return Html::a(
-                    				'<span>Add/Modify Services</span>', 
-                    				$url);
+                    				'<span class="fa fa-gears"></span>', 
+                    				Yii::getAlias('@web') . '/' . CommonUtility::getCategoryActionUrl($model['category_title']) . '/list/' . $model['vendor_id']);
                     		},
                     		'delete' => function ($url,$model,$key) {
                     				return Html::a(
-                    				'<span>Delete Vendor</span>', 
+                    				'<span class="fa fa-trash"></span>', 
                     				$url);
                     		}
                     	]
@@ -59,5 +60,3 @@ $this->title = 'Marriage On Budget - Vendors';
         </div>
     </div>    
 </section>
-
-	

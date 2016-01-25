@@ -30,6 +30,7 @@ $this->title = 'Marriage On Budget - Category';
         <div class="box-body">
             <?= $form->field($model, 'category_title'); ?>
             <?= $form->field($model, 'category_desc')->textarea(); ?>
+            <?= $form->field($model, 'is_system')->checkbox(array('label'=>''))->label('System category'); ?>
             <p id="msg-show" class="text-green"></p>
         </div>
         <div class="box-footer">

@@ -2,6 +2,8 @@
 
 namespace app\models;
 use yii\db\ActiveRecord;
+use app\models\Category;
+use yii\db\Query;
 
 class Vendors extends ActiveRecord
 {
@@ -23,5 +25,17 @@ class Vendors extends ActiveRecord
     public static function tableName()
     {
         return 'mob_vendor_master';
-    }    
+    }
+    
+    public static function getVendorDetail($id) 
+    {
+        $query = new Query();
+        $vendors = $query
+            ->select('mob_vendor_master.*, mob_categories.category_title')
+            ->from('mob_vendor_master')
+            ->leftJoin('mob_categories', '`mob_vendor_master`.`vendor_categories` = `mob_categories`.`category_id`')
+            ->where(['mob_categories.category_id' => $id])
+            ->one();
+        return $vendors;
+    }
 }
