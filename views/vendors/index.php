@@ -18,8 +18,8 @@ $this->title = 'Marriage On Budget - Vendors';
             <a href="<?= Yii::getAlias('@web') ?>/vendors/add" title="Add Vendor" class="btn btn-primary pull-right">Add Vendor</a>
         </div>
         <div class="box-body no-padding">
-            <?php 
-        	Pjax::begin(['id'=>'pjax-vendors']); 
+            <?php
+        	Pjax::begin(['id'=>'pjax-vendors']);
 			?>
             <?= GridView::widget([
                 'dataProvider' => $vendors,
@@ -37,26 +37,26 @@ $this->title = 'Marriage On Budget - Vendors';
                     	'buttons' => [
                     		'location' => function ($url,$model) {
                     			return Html::a(
-                    				'<span class="fa fa-map-marker"></span>', 
+                    				'<span class="fa fa-map-marker"></span>',
                     				Yii::getAlias('@web') . '/vendors/location' . '/' . $model['vendor_id']);
                     		},
                     		'services' => function ($url,$model,$key) {
                     				return Html::a(
-                    				'<span class="fa fa-gears"></span>', 
-                    				Yii::getAlias('@web') . '/' . CommonUtility::getCategoryActionUrl($model['category_title']) . '/list/' . $model['vendor_id']);
+                    				'<span class="fa fa-gears"></span>',
+                    				Yii::getAlias('@web') . '/vendors/' . CommonUtility::getCategoryActionUrl($model['category_title']) . '/' . $model['vendor_id']);
                     		},
                     		'delete' => function ($url,$model,$key) {
                     				return Html::a(
-                    				'<span class="fa fa-trash"></span>', 
+                    				'<span class="fa fa-trash"></span>',
                     				$url);
                     		}
                     	]
                     ]
                 ],
             ]); ?>
-            <?php 
-            	Pjax::end(); 
+            <?php
+            	Pjax::end();
             ?>
         </div>
-    </div>    
+    </div>
 </section>

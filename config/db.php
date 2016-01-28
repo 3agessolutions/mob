@@ -2,7 +2,8 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=mob',
+    /*'dsn' => 'mysql:host=localhost;dbname=mob;',*/
+    'dsn' => 'mysql:host=localhost;port=8889;dbname=mob;unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock',
     'username' => 'mob',
     'password' => 'mob@123',
     'charset' => 'utf8',
