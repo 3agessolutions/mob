@@ -6,6 +6,7 @@ use yii\widgets\ActiveForm;
 $this->title = 'Marriage On Budget - Venues';
 ?>
 <section class="content">
+    <? echo 'hi'; ?>
     <div class="nav-tabs-custom">
         <!-- Tabs within a box -->
         <ul class="nav nav-tabs pull-right">
