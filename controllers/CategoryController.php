@@ -34,24 +34,24 @@ class CategoryController extends Controller
                 'pageSize' => 10,
             ]
         ]);
-        
+
         return $this->render('index', ['categories' => $categoryDataProvider]);
     }
-    
-    public function actionAdd() 
+
+    public function actionAdd()
     {
         $category = new Category();
-        
+
         if (Yii::$app->request->isAjax) {
             if ($category->load(Yii::$app->request->post())) {
                 Yii::$app->response->format = Response::FORMAT_JSON;
                 return ['success' => $category->save()];
             }
-            
+
             return $this->renderAjax('add', [
                 'model' => $category,
             ]);
-            
+
         } else {
             $this->layout='admin';
             if ($category->load(Yii::$app->request->post()) && $category->save()) {
@@ -61,8 +61,8 @@ class CategoryController extends Controller
             return $this->render('add', ['model' => $category]);
         }
     }
-    
-    public function actionValidate() 
+
+    public function actionValidate()
     {
         $category = new Category();
         $category->load(Yii::$app->request->post());
@@ -71,25 +71,24 @@ class CategoryController extends Controller
             return ActiveForm::validate($category);
         }
     }
-    
-    public function actionEdit() 
+
+    public function actionEdit()
     {
         $this->layout='admin';
         return $this->render('edit');
     }
-    
-    public function actionDelete($id) 
+
+    public function actionDelete($id)
     {
-    	
-        $category = Category::find()->where(['category_id' => $id])->one();
+    	  $category = Category::find()->where(['category_id' => $id])->one();
         if($category->delete() >= 0) {
             //Yii::$app->response->format = Response::FORMAT_JSON;
             //return ['success' => true];
             $this->redirect(Yii::getAlias('@web') . '/category/index');
         }
     }
-    
-    public function actionView($id) 
+
+    public function actionView($id)
     {
         $this->layout='admin';
         return $this->render('view');

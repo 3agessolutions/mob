@@ -1,0 +1,48 @@
+a:hover, a:active, a:focus {
+  text-decoration: none;
+  outline: 0;
+}
+body {
+  font: 12px "robotoregular", Helvetica, sans-serif;
+}
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+.navbar-default {
+  background: #00aeaf;
+  border: none;
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  color: #fff;
+}
+.navbar-default .navbar-brand {
+  color: #fff;
+  text-transform: uppercase;
+}
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
+  color: #fff;
+}
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+  color: #fff;
+  background: #1777B7;
+}
+.navbar-default .navbar-nav>li>a {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/** bx slider reset **/
+.bx-wrapper .bx-viewport {
+  border: 0px;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  left: auto;
+}
+.bx-wrapper img {
+  opacity: 1;
+}

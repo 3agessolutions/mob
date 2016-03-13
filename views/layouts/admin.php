@@ -16,7 +16,7 @@ AdminAsset::register($this);
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <?php $this->head() ?>
   </head>
-  <body class="skin-blue-light"> 
+  <body class="skin-blue-light">
     <div class="wrapper">
       <header class="main-header">
         <!-- Logo -->
@@ -90,6 +90,9 @@ AdminAsset::register($this);
       </div>
     </div>
     <?php
+      $this->registerJsFile(Yii::getAlias('@web') . '/web/js/plugins/spinner/jquery.bootstrap-touchspin.js', []);
+      $this->registerJsFile(Yii::getAlias('@web') . '/web/js/plugins/rangeslider/bootstrap-slider.js', []);
+      $this->registerJsFile(Yii::getAlias('@web') . '/web/js/select2.min.js', []);
       $this->registerJsFile(Yii::getAlias('@web') . '/web/js/app.min.js', []);
     ?>
     <div class="cssload-loader">Loading</div>

@@ -10,8 +10,8 @@ class Venues extends ActiveRecord
         return [
             [
                 [
-                    'vendor_id', 'venue_name', 'venue_type', 'venue_space', 'venue_capacity',
-                    'venue_area'
+                    'venue_name', 'venue_type', 'venue_space', 'venue_capacity',
+                    'venue_area', 'vendor_id'
                 ]
                 , 'required'
             ]

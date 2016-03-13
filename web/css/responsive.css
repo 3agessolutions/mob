@@ -1,0 +1,49 @@
+@media screen and (min-width:1200px) {
+  .container-fluid {
+    width: 1150px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .navbar-right {
+    position: relative;
+    overflow: hidden;
+    padding-left: 40px;
+  }
+  .navbar-right:before {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /*background: rgba(0,0,0,0.4);
+    -webkit-transform: rotate(28deg);
+    -moz-transform: rotate(28deg);
+    transform: rotate(28deg);
+    left: -40px;
+    top: -120px;*/
+  }
+}
+@media screen and (max-width: 767px) {
+  .mob-banner-inner .bx-wrapper img {
+
+  }
+  .navbar-default .navbar-toggle {
+    border: none;
+    color: #000;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background: rgba(0,0,0,0.4);
+  }
+  .navbar-default .navbar-toggle:focus,
+  .navbar-default .navbar-toggle:hover {
+    background: none;
+  }
+  .navbar-default .navbar-toggle:focus .icon-bar,
+  .navbar-default .navbar-toggle:hover .icon-bar {
+    background: rgba(0,0,0,0.8);
+  }
+  .navbar-collapse {
+    position: absolute;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+  }
+}

@@ -10,7 +10,7 @@ class VendorsLocation extends ActiveRecord
         return [
             [
                 [
-                    'vendor_latitude', 'vendor_longitude', 'vendor_building_no', 'vendor_street', 'vendor_city', 
+                    'vendor_latitude', 'vendor_longitude', 'vendor_building_no', 'vendor_street', 'vendor_city', 'vendor_locality',
                     'vendor_id', 'vendor_state', 'vendor_country', 'vendor_pincode'
                 ]
                 , 'required'
@@ -21,5 +21,5 @@ class VendorsLocation extends ActiveRecord
     public static function tableName()
     {
         return 'mob_vendor_location';
-    }   
+    }
 }
