@@ -41,26 +41,27 @@
 </div>
 <div id="content">
   <div id="mob-vendor-list">
+    <h2 class="mob-title">Vendors</h2>
     <ul>
-      <li>
+      <li class="vendor-venue">
         <a href="#" title="Venues">
           <span class="vendor-icon"></span>
           <span class="vendor-title">Venues</span>
         </a>
       </li>
-      <li>
+      <li class="vendor-cater">
         <a href="#" title="Venues">
           <span class="vendor-icon"></span>
           <span class="vendor-title">Caterers</span>
         </a>
       </li>
-      <li>
+      <li class="vendor-decor">
         <a href="#" title="Venues">
           <span class="vendor-icon"></span>
           <span class="vendor-title">Decorators</span>
         </a>
       </li>
-      <li>
+      <li  class="vendor-photo">
         <a href="#" title="Venues">
           <span class="vendor-icon"></span>
           <span class="vendor-title">Photography</span>

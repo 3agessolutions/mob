@@ -185,3 +185,52 @@ body {
   background: #fff;
   margin: 0px 10px;
 }
+
+/*** Content ***/
+.mob-title {
+  font-size: 20px;
+  font-family: "robotomedium";
+}
+
+/** Home page vendor list **/
+#mob-vendor-list {
+  text-align: center;
+}
+#mob-vendor-list li {
+  width: 120px;
+  display: inline-block;
+}
+#mob-vendor-list a {
+  display: block;
+  width: 120px;
+  padding: 10px;
+  text-align: center;
+}
+#mob-vendor-list .vendor-title {
+  display: block;
+  color: #000;
+  font-size: 14px;
+  line-height: 20px;
+  padding-top: 10px;
+}
+#mob-vendor-list .vendor-icon {
+  width: 100px;
+  height: 50px;
+  display: block;
+}
+#mob-vendor-list li.vendor-venue .vendor-icon {
+  background: url('../images/venues.svg') no-repeat center center;
+  background-size: 55px auto;
+}
+#mob-vendor-list li.vendor-cater .vendor-icon {
+  background: url('../images/caterers.svg') no-repeat center center;
+  background-size: 55px auto;
+}
+#mob-vendor-list li.vendor-photo .vendor-icon {
+  background: url('../images/photography.svg') no-repeat center center;
+  background-size: 55px auto;
+}
+#mob-vendor-list li.vendor-decor .vendor-icon {
+  background: url('../images/decorations.svg') no-repeat center center;
+  background-size: 55px auto;
+}
