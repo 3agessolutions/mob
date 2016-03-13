@@ -15,17 +15,9 @@
       </form>
     </div>
     <ul class="mob-vend-cities">
-      <li><a href="#" title="Chennai">Chennai</a></li>
-      <li><a href="#" title="Salem">Salem</a></li>
-      <li><a href="#" title="Madurai">Madurai</a></li>
-      <li><a href="#" title="Madurai">Vellore</a></li>
-      <li><a href="#" title="Madurai">Kanyakumari</a></li>
-      <li><a href="#" title="Coimbatore">Coimbatore</a></li>
-      <li><a href="#" title="Tirunelveli">Tirunelveli</a></li>
-      <li><a href="#" title="Cuddalore">Cuddalore</a></li>
-      <li><a href="#" title="Trichy">Trichy</a></li>
-      <li><a href="#" title="Hosur">Hosur</a></li>
-      <li><a href="#" title="Erode">Erode</a></li>
+      <? foreach ($cities as $index => $city) { ?>
+        <li><a href="<?= Yii::getAlias('@web') . '/cvendors/city/' . $city['vendor_city'] ?>" title="<?= $city['vendor_city'] ?>"><?= $city['vendor_city'] ?></a></li>
+      <? } ?>
     </ul>
     <ul class="mob-contact">
       <li><a href="#" title="Mobile Number"><i class="fa fa-phone"></i> &nbsp; 9876543210</a></li>
@@ -40,8 +32,8 @@
   </div>
 </div>
 <div id="content">
+  <h2 class="mob-title">Vendors</h2>
   <div id="mob-vendor-list">
-    <h2 class="mob-title">Vendors</h2>
     <ul>
       <li class="vendor-venue">
         <a href="#" title="Venues">
@@ -50,19 +42,19 @@
         </a>
       </li>
       <li class="vendor-cater">
-        <a href="#" title="Venues">
+        <a href="#" title="Caterers">
           <span class="vendor-icon"></span>
           <span class="vendor-title">Caterers</span>
         </a>
       </li>
       <li class="vendor-decor">
-        <a href="#" title="Venues">
+        <a href="#" title="Decorators">
           <span class="vendor-icon"></span>
           <span class="vendor-title">Decorators</span>
         </a>
       </li>
       <li  class="vendor-photo">
-        <a href="#" title="Venues">
+        <a href="#" title="Photography">
           <span class="vendor-icon"></span>
           <span class="vendor-title">Photography</span>
         </a>
@@ -70,17 +62,3 @@
     </ul>
   </div>
 </div>
-
-
-<?php
-  //
-  /*$this->registerJs("$(document).ready(function(){
-      $('.bxslider').bxSlider({
-        controls: false,
-        pager: false,
-        auto: true,
-        mode: 'fade',
-        speed: 1000
-      });
-  }); ");*/
-?>

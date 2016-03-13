@@ -95,7 +95,7 @@ body {
   font-size: 14px;
   line-height: 24px;
   text-align: center;
-  margin: 58px 0px 10px;
+  margin: 50px 0px 10px;
 }
 .mob-contact li,
 .mob-social li {
@@ -175,6 +175,7 @@ body {
   line-height: 14px;
   display: block;
   color: #fff;
+  text-transform: capitalize;
 }
 .mob-vend-cities li:hover a {
   color: #00aeaf;
@@ -190,14 +191,19 @@ body {
 .mob-title {
   font-size: 20px;
   font-family: "robotomedium";
+  text-align: center;
 }
 
 /** Home page vendor list **/
 #mob-vendor-list {
   text-align: center;
 }
+#mob-vendor-list ul {
+  margin-top: 20px;
+}
 #mob-vendor-list li {
   width: 120px;
+  margin: 0px 10px;
   display: inline-block;
 }
 #mob-vendor-list a {

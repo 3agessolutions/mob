@@ -7,6 +7,8 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\Category;
+use app\models\Vendors;
+use app\models\VendorsLocation;
 
 class IndexController extends Controller
 {
@@ -20,6 +22,17 @@ class IndexController extends Controller
             $categories[$value['category_id']] = $value['category_title'];
         }
 
-        return $this->render('index', ['categories' => $categories]);
+        return $this->render('index', ['categories' => $categories, 'cities' => $this->getCities()]);
+    }
+
+    private function getCities()
+    {
+        $cities = VendorsLocation::getCities();
+        return $cities;
+    }
+
+    private function getVendors()
+    {
+
     }
 }
