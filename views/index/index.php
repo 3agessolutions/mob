@@ -15,9 +15,9 @@
       </form>
     </div>
     <ul class="mob-vend-cities">
-      <? foreach ($cities as $index => $city) { ?>
+      <?php foreach ($cities as $index => $city) { ?>
         <li><a href="<?= Yii::getAlias('@web') . '/cvendors/city/' . $city['vendor_city'] ?>" title="<?= $city['vendor_city'] ?>"><?= $city['vendor_city'] ?></a></li>
-      <? } ?>
+      <?php } ?>
     </ul>
     <ul class="mob-contact">
       <li><a href="#" title="Mobile Number"><i class="fa fa-phone"></i> &nbsp; 9876543210</a></li>

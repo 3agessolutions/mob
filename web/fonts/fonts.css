@@ -31,28 +31,28 @@
 @font-face {
   font-family: 'opensansbold';
   src: url('opensansbold.eot');
-  src: url('opensansbold.eot?#iefix') format('embedded-opentype'), url('opensansbold.woff2') format('woff2'), url('opensansbold.woff') format('woff'), url('opensansbold.ttf') format('truetype'), url('opensansbold.svg#opensansbold') format('svg');
+  src: url('opensansbold.eot?#iefix') format('embedded-opentype'), url('opensansbold.woff') format('woff'), url('opensansbold.ttf') format('truetype'), url('opensansbold.svg#opensansbold') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'opensanslight';
   src: url('opensanslight.eot');
-  src: url('opensanslight.eot?#iefix') format('embedded-opentype'), url('opensanslight.woff2') format('woff2'), url('opensanslight.woff') format('woff'), url('opensanslight.ttf') format('struetype'), url('roboto-light-webfont.svg#opensanslight') format('svg');
+  src: url('opensanslight.eot?#iefix') format('embedded-opentype'), url('opensanslight.woff') format('woff'), url('opensanslight.ttf') format('struetype'), url('roboto-light-webfont.svg#opensanslight') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'opensansmedium';
-  src: url('opensansmedium.eot');
-  src: url('opensansmedium.eot?#iefix') format('embedded-opentype'), url('opensansmedium.woff2') format('woff2'), url('opensansmedium.woff') format('woff'), url('opensansmedium.ttf') format('truetype'), url('opensansmedium.svg#opensansmedium') format('svg');
+  font-family: 'opensanssemibold';
+  src: url('opensanssemibold.eot');
+  src: url('opensanssemibold.eot?#iefix') format('embedded-opentype'),  url('opensanssemibold.woff') format('woff'), url('opensanssemibold.ttf') format('truetype'), url('opensanssemibold.svg#opensanssemibold') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'opensansregular';
   src: url('opensansregular.eot');
-  src: url('opensansregular.eot?#iefix') format('embedded-opentype'), url('opensansregular.woff2') format('woff2'), url('opensansregular.woff') format('woff'), url('opensansregular.ttf') format('truetype'), url('opensansregular.svg#opensansregular') format('svg');
+  src: url('opensansregular.eot?#iefix') format('embedded-opentype'), url('opensansregular.woff') format('woff'), url('opensansregular.ttf') format('truetype'), url('opensansregular.svg#opensansregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }

@@ -3,7 +3,7 @@ a:hover, a:active, a:focus {
   outline: 0;
 }
 body {
-  font: 12px "robotoregular", Helvetica, sans-serif;
+  font: 12px "opensansregular", Helvetica, sans-serif;
 }
 ul {
   padding: 0px;

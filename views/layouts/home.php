@@ -36,6 +36,7 @@
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="#">Home</a></li>
                   <li><a href="#">Vendors</a></li>
+                  <li><a href="#">Gallery</a></li>
                 </ul>
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

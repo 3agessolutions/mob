@@ -48,7 +48,7 @@ body {
 }
 .mob-banner-top p {
   width: 900px;
-  font: 42px "robotomedium", helvetica, sans-serif;
+  font: 42px "opensansmedium", helvetica, sans-serif;
   color: #E6FFFF;
   text-align: center;
   margin: 0px auto 40px;
@@ -74,7 +74,7 @@ body {
   height: 40px;
   border: 0px;
   padding: 0px 10px;
-  font: 16px "robotoregular", helvetica, sans-serif;
+  font-size: 16px;
 }
 #mob-search-vendor .form-submit {
   width: 150px;
@@ -95,7 +95,7 @@ body {
   font-size: 14px;
   line-height: 24px;
   text-align: center;
-  margin: 50px 0px 10px;
+  margin: 40px 0px 20px;
 }
 .mob-contact li,
 .mob-social li {
@@ -115,10 +115,11 @@ body {
 .mob-contact a i {
   width: 20px;
   height: 20px;
-  line-height: 20px;
   font-size: 12px;
+  padding-top: 3px;
   display: inline-block;
-  background: #000;
+  /*background: #000;*/
+  border: 1px solid #fff;
   color: #fff;
   border-radius: 100%;
   -moz-border-radius: 100%;
@@ -190,7 +191,7 @@ body {
 /*** Content ***/
 .mob-title {
   font-size: 20px;
-  font-family: "robotomedium";
+  font-family: "opensansmedium", helvetica, sans-serif;
   text-align: center;
 }
 
@@ -199,12 +200,25 @@ body {
   text-align: center;
 }
 #mob-vendor-list ul {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 #mob-vendor-list li {
   width: 120px;
   margin: 0px 10px;
   display: inline-block;
+  position: relative;
+}
+#mob-vendor-list li:after {
+  content: " ";
+  width: 1px;
+  height: 50px;
+  background: #00aeaf;
+  position: absolute;
+  right: -10px;
+  top: 20px;
+}
+#mob-vendor-list li:last-child:after {
+  display: none;
 }
 #mob-vendor-list a {
   display: block;
