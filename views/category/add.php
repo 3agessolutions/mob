@@ -16,7 +16,7 @@ $this->title = 'Marriage On Budget - Category';
         <?php endif ?>
         <?php $form = ActiveForm::begin([
             'id' => 'category-form',
-            'enableAjaxValidation' => true,
+            'enableAjaxValidation' => false,
             'validateOnBlur' => false,
             'validateOnChange' => false,
             'validateOnSubmit' => true,
@@ -25,12 +25,13 @@ $this->title = 'Marriage On Budget - Category';
                 'class' => 'form-horizontal',
                 'enctype' => 'multipart/form-data'
             ]
-        ]); 
+        ]);
         ?>
         <div class="box-body">
             <?= $form->field($model, 'category_title'); ?>
             <?= $form->field($model, 'category_desc')->textarea(); ?>
             <?= $form->field($model, 'is_system')->checkbox(array('label'=>''))->label('System category'); ?>
+            <?= $form->field($model, 'image')->fileInput(); ?>
             <p id="msg-show" class="text-green"></p>
         </div>
         <div class="box-footer">
@@ -41,20 +42,22 @@ $this->title = 'Marriage On Budget - Category';
 </section>
 <?php
     $this->registerJs("$(function () {
+        console.log($('#category-form'));
         $(document).on('submit', '#category-form', function () {
             $('.cssload-loader').show();
             var self = this;
+            var fd = new FormData(this);
             $.ajax({
                 url: '',
                 type: 'POST',
-                data: $(this).serialize(),
+                data: fd,
                 success: function(data) {
                     $('.cssload-loader').hide();
                     if(data.success == true) {
-                        $('#msg-show').text('New Category added successfully').show();                      
+                        $('#msg-show').text('New Category added successfully').show();
                         $(self).get(0).reset();
                     } else {
-                        $('#msg-show').text('Error in inserting record. Category Name already found').show();                      
+                        $('#msg-show').text('Error in inserting record. Category Name already found').show();
                         $(self).get(0).reset();
                     }
                 },
@@ -64,11 +67,11 @@ $this->title = 'Marriage On Budget - Category';
             });
             return false;
         });
-        
+
         $(document).on('beforeValidate', '#category-form', function () {
             $('.cssload-loader').show();
         });
-        
+
         $(document).on('afterValidate', '#category-form', function () {
             $('.cssload-loader').hide();
         });

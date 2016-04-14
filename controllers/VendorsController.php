@@ -23,9 +23,10 @@ class VendorsController extends VendorActionsController
 
         $query = new Query();
         $vendors = $query
-            ->select('mob_vendor_master.*, mob_categories.category_title')
+            ->select('mob_vendor_master.*, mob_categories.category_title, mob_vendor_location.vendor_city, mob_vendor_location.vendor_country')
             ->from('mob_vendor_master')
-            ->leftJoin('mob_categories', '`mob_vendor_master`.`vendor_categories` = `mob_categories`.`category_id`');
+            ->leftJoin('mob_categories', '`mob_vendor_master`.`vendor_categories` = `mob_categories`.`category_id`')
+            ->leftJoin('mob_vendor_location', '`mob_vendor_master`.`vendor_id` = `mob_vendor_location`.`vendor_id`');
 
         $vendorDataProvider = new ActiveDataProvider([
             //'query' => Vendors::find(),

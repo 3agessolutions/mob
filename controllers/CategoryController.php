@@ -44,8 +44,16 @@ class CategoryController extends Controller
 
         if (Yii::$app->request->isAjax) {
             if ($category->load(Yii::$app->request->post())) {
+                $upload_file = $category->getUploadedFileName();
                 Yii::$app->response->format = Response::FORMAT_JSON;
-                return ['success' => $category->save()];
+                if($category->save()) {
+                  if($upload_file !== false) {
+                    $upload_file.saveAs(Yii::getAlias('@web') . '/files/categories/');
+                  }
+                  return ['success' => true];
+                } else {
+                  return ['error' => false];
+                }
             }
 
             return $this->renderAjax('add', [
@@ -68,6 +76,9 @@ class CategoryController extends Controller
         $category->load(Yii::$app->request->post());
         if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($category);
+        } else {
+            $this->layout='admin';
             return ActiveForm::validate($category);
         }
     }

@@ -30,6 +30,8 @@ $this->title = 'Marriage On Budget - Vendors';
                     'vendor_phone',
                     'vendor_email',
                     'vendor_url',
+                    'vendor_country',
+                    'vendor_city',
                     [
                         'class' => ActionColumn::className(),
                         'header'=>'Action',
