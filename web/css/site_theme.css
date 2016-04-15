@@ -1,0 +1,31 @@
+a:hover,
+a:active {
+  text-decoration: none;
+}
+body {
+  background: #e1e3e4;
+  font-family: "opensanslight";
+  font-size: 12px;
+  color: #333333;
+}
+.navbar {
+  margin: 0px;
+}
+.navbar-default {
+  background: rgba(0,0,0,0.6);
+  border: none;
+}
+
+/** common **/
+.form-text {
+  font-family: "OpenSansRegular";
+  padding: 0px 10px;
+}
+.form-submit {
+  background: #00aeaf;
+  padding: 0px 10px;
+  font-family: "OpenSansRegular";
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+}

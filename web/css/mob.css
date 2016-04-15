@@ -1,3 +1,7 @@
+select  {
+  background: #fff;
+}
+
 .sidebar-menu>li>a>.fa {
     font-size: 20px;
     float: left;
@@ -41,6 +45,51 @@
 	padding-right: 10px;
 }
 
+/*** Checkbox css ***/
+
+.custom-check {
+  padding-top: 7px;
+}
+.custom-check input {
+  display: none;
+}
+.custom-check label {
+  height: 20px;
+  line-height: 20px;
+  padding: 0px 10px 0px 30px;
+  position: relative;
+  cursor: pointer;
+  font-weight: normal;
+
+  background-color: #e2e2e2;
+  color: #888;
+}
+.custom-check input + label:before {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  top: 0px;
+
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  content: "\f00d";
+  line-height: 20px;
+}
+.custom-check input:checked + label {
+  background: #3c8dbc;
+  color: #fff;
+}
+.custom-check input:checked + label:before {
+  display: inline-block;
+  content: "\f00c";
+}
+
 
 /** Map view **/
 #vendor-map-container {
@@ -59,4 +108,74 @@
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
+}
+
+span.select2.select2-container.select2-container--default {
+  width: 100% !important;
+}
+.select2-container .select2-selection--single {
+  height: 32px;
+}
+.select2-container--default .select2-selection--multiple,
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border-color: #d2d6de;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+
+
+/** Form css horizontal css **/
+#venue-form {
+  margin: 20px 10px;
+}
+#venue-form .control-label {
+  float: left;
+  width: 30%;
+  text-align: left;
+}
+#venue-form .form-control {
+  float: left;
+  width: 70%;
+}
+#venue-form .form-group:before,
+#venue-form .form-group:after {
+  display: table;
+  content: "";
+}
+#venue-form .form-group:after {
+  clear: both;
+}
+#venue-form .form-group .help-block {
+  margin-left: 30%;
+}
+#venue-form .btn-primary {
+  margin-left: 30%;
+}
+#venue-form .form-group #venues-venue_type,
+#venue-form .form-group #venues-venue_space  {
+  float: left;
+}
+
+#venue-form .slider {
+  width: 70% !important;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+#venue-form .slider .slider-select-value {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  right: 0px;
+  top: 20px;
+  background: #fff;
+  border: 1px solid #bbb;
+}
+#venue-form .bootstrap-touchspin input {
+  width: 100%;
+  float: none;
+}
+#venue-form .help-block {
+  clear: both;
 }

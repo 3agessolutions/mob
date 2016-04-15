@@ -22,12 +22,12 @@ $this->title = 'Marriage On Budget - Venues';
 
                 <?php $form1 = ActiveForm::begin([
                     'id' => 'venue-form',
-                    'action' => 'addvenue',
+                    'action' => 'savevenue',
                     'enableAjaxValidation' => true,
                     'validateOnBlur' => false,
                     'validateOnChange' => false,
                     'validateOnSubmit' => true,
-                    'validationUrl' => '/vendors/vvenue',
+                    'validationUrl' => '/mob/vendors/vvenue',
                     'options' => [
                         'class' => 'form-horizontal',
                         'enctype' => 'multipart/form-data'
@@ -35,28 +35,34 @@ $this->title = 'Marriage On Budget - Venues';
                     //'errorCssClass' => 'error-field'
                 ]); ?>
                 <div class="row">
-                    <div class="col-md-4">
-                        <?= $form1->field($venue, 'venue_name') ?>
-                    </div>
-                    <div class="col-md-4">
-                        <?= $form1->field($venue, 'venue_type')->dropDownList($venueType) ?>
-                    </div>
-                    <div class="col-md-4">
-                        <?= $form1->field($venue, 'venue_space')->dropDownList($venueSpace) ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <?= $form1->field($venue, 'venue_capacity') ?>
-                    </div>
-                    <div class="col-md-4">
-                        <?= $form1->field($venue, 'venue_area') ?>
+                    <div class="col-md-8">
+                      <?= $form1->field($venue, 'venue_name') ?>
+                      <?= $form1->field($venue, 'venue_type')->radioList($venueType,[
+                        'item'=>function ($index, $label, $name, $checked, $value){
+                          $inputStr = '<input id="venue_' . $label . '" type="radio" name="' . $name . '" value="' . $value .'" />';
+                          if($checked)
+                            $inputStr = '<input id="venue_' . $label . '" type="radio" name="' . $name . '" value="' . $value .'" checked/>';
+                          return '<label class="custom-check">' . $inputStr . '<label for="venue_' . $label . '">' . $label . '</label>' .
+                              '</label>';
+                      }])->label('Venue Type'); ?>
+                      <?= $form1->field($venue, 'venue_space')->radioList($venueSpace,[
+                        'item'=>function ($index, $label, $name, $checked, $value){
+                          $inputStr = '<input id="venue_' . $label . '" type="radio" name="' . $name . '" value="' . $value .'" />';
+                          if($checked)
+                            $inputStr = '<input id="venue_' . $label . '" type="radio" name="' . $name . '" value="' . $value .'" checked/>';
+                          return '<label class="custom-check">' . $inputStr . '<label for="venue_' . $label . '">' . $label . '</label>' .
+                              '</label>';
+                      }])->label('Venue Space'); ?>
+                      <?= $form1->field($venue, 'venue_capacity')->textInput(['class' => 'venue-capacity']) ?>
+                      <?= $form1->field($venue, 'venue_area')->textInput(['class' => 'venue-area']) ?>
+                      <?= $form1->field($venue, 'vendor_id')->hiddenInput(['value'=> $vendors->vendor_id])->label(FALSE) ?>
                     </div>
                 </div>
                 <p id="venue-show" class="text-green"></p>
                 <div class="row">
-                    <div class="col-md-6">
-                        <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+                    <div class="col-md-8">
+                      <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+                      <?= Html::a('Cancel', ['/vendors/venues/' . $vendors->vendor_id], ['class' => 'btn']) ?>
                     </div>
                 </div>
                 <?php ActiveForm::end(); ?>
@@ -64,3 +70,68 @@ $this->title = 'Marriage On Budget - Venues';
         </div>
     </div>
 </section>
+<?php
+  $this->registerJs("$(function () {
+    var capVal = $('.venue-capacity').val();
+    $('.venue-capacity').ionRangeSlider({
+        type: 'single',
+        min: 100,
+        max: 1500,
+        step: 100,
+        grid: true,
+        grid_snap: true
+    });
+
+    $('.venue-area').TouchSpin({
+        min: 0,
+        max: 10000,
+        step: 0.25,
+        decimals: 2,
+        boostat: 5,
+        maxboostedstep: 10,
+        postfix: 'sq.ft'
+    });
+    $('.custom-select').select2({
+      tags: \"true\",
+      allowClear: true
+    });
+
+
+  });");
+
+  $this->registerJs("$(function () {
+        $(document).on('submit', '#venue-form', function () {
+            $('.cssload-loader').show();
+            var self = this;
+            $.ajax({
+                url: '" . Yii::getAlias('@web') . "/vendors/savevenue',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function(data) {
+                    $('.cssload-loader').hide();
+                    if(data.success == true) {
+                        $('#venue-show').text('New Venue added successfully').show();
+                        $(self).get(0).reset();
+                    } else {
+                        $('#venue-show').text('Error in inserting record.').show();
+                        $(self).get(0).reset();
+                    }
+                },
+                error: function() {
+                    $('.cssload-loader').hide();
+                }
+            });
+            return false;
+        });
+
+        $(document).on('beforeValidate', '#venue-form', function () {
+            $('.cssload-loader').show();
+        });
+
+        $(document).on('afterValidate', '#venue-form', function () {
+            $('.cssload-loader').hide();
+        });
+
+
+    });", $this::POS_END);
+?>

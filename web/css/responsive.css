@@ -1,0 +1,25 @@
+@media screen and (min-width: 1900px) {
+  .container {
+    width: 1600px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #mob-search-vendor {
+    width: 900px;
+    margin: 0px auto;
+  }
+  #mob-search-vendor .form-text {
+    width: 720px;
+    float: left;
+  }
+  #mob-search-vendor .form-submit {
+    width: 150px;
+    float: right;
+  }
+}
+@media screen and (min-width: 768px) {
+  .navbar>.container .navbar-brand,
+  .navbar>.container-fluid .navbar-brand {
+    margin: 0px;
+  }
+}

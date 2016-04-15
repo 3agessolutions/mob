@@ -14,8 +14,8 @@ class AdminController extends Controller
         $this->layout='admin';
         return $this->render('index');
     }
-    
-    public function actionLogin() 
+
+    public function actionLogin()
     {
         $this->layout='adminlogin';
         return $this->render('login');
