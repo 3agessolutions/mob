@@ -13,25 +13,13 @@ class Category extends ActiveRecord
     public function rules()
     {
         return [
-            [['category_desc', 'category_title', 'is_system'], 'required'],
-            [['image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, svg']
+            [['category_desc', 'category_title', 'is_system'], 'required']
         ];
     }
 
     public static function tableName()
     {
         return 'mob_categories';
-    }
-
-    public function getUploadedFileName() {
-        var_export(1);
-        $image = UploadedFile::getInstance($this, 'image');
-        var_export($image);
-        if (empty($image)) {
-            return false;
-        }
-        $this->pic = time(). '.' . $image->extension;
-        return $image;
     }
 
     public function beforeSave($insert)

@@ -9,18 +9,13 @@ $this->title = 'Marriage On Budget - Category';
 <section class="content">
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Add Category</h3>
+            <h3 class="box-title">Add Icon</h3>
         </div>
         <?php if (Yii::$app->session->hasFlash('categorysave')): ?>
-            <div id="category-success" class="has-padding text-green">Category Added Successfully</div>
+            <div id="category-success" class="has-padding text-green">Icon Added Successfully</div>
         <?php endif ?>
         <?php $form = ActiveForm::begin([
             'id' => 'category-form',
-            'enableAjaxValidation' => true,
-            'validateOnBlur' => false,
-            'validateOnChange' => false,
-            'validateOnSubmit' => true,
-            'validationUrl' => 'validate',
             'options' => [
                 'class' => 'form-horizontal',
                 'enctype' => 'multipart/form-data'
@@ -28,9 +23,9 @@ $this->title = 'Marriage On Budget - Category';
         ]); 
         ?>
         <div class="box-body">
-            <?= $form->field($model, 'category_title'); ?>
-            <?= $form->field($model, 'category_desc')->textarea(); ?>
-            <?= $form->field($model, 'is_system')->checkbox(array('label'=>''))->label('System category'); ?>
+            <?= 
+                $form->field($model, 'image')->fileInput(); 
+            ?>
             <p id="msg-show" class="text-green"></p>
         </div>
         <div class="box-footer">
@@ -41,20 +36,23 @@ $this->title = 'Marriage On Budget - Category';
 </section>
 <?php
     $this->registerJs("$(function () {
+        $('input[type='hidden']').remove();
         $(document).on('submit', '#category-form', function () {
             $('.cssload-loader').show();
             var self = this;
             $.ajax({
                 url: '',
                 type: 'POST',
-                data: $(this).serialize(),
+                data: $(self).serialize(),
+                contentType: false,
+                processData: false,
                 success: function(data) {
                     $('.cssload-loader').hide();
                     if(data.success == true) {
-                        $('#msg-show').text('New Category added successfully').show();                      
+                        $('#msg-show').text('Icon uploaded successfully').show();                      
                         $(self).get(0).reset();
                     } else {
-                        $('#msg-show').text('Error in inserting record. Category Name already found').show();                      
+                        $('#msg-show').text('Error in uploading icon').show();                      
                         $(self).get(0).reset();
                     }
                 },

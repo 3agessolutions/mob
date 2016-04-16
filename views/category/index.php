@@ -1,4 +1,6 @@
 <?php
+
+use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\grid\ActionColumn;
@@ -25,10 +27,24 @@ $this->title = 'Marriage On Budget - Vendors';
                     [
                         'class' => ActionColumn::className(),
                         'header'=>'Action',
-                        'template' => '{delete}{link} {view}{link}',
-                        'urlCreator' => function( $action, $model, $key, $index ) {
-                            return Yii::getAlias('@web') . '/category/' . $action . '/' . intval($key);
-                        }
+                        'template' => '{delete} {view} {addicon} {link}',
+                        'buttons' => [
+                    		'addicon' => function ($url,$model) {
+                    			return Html::a(
+                    				'<span class="fa fa-plus"></span>',
+                    				Yii::getAlias('@web') . '/category/addicon' . '/' . $model['category_id']);
+                    		},
+                    		'view' => function ($url,$model,$key) {
+                    				return Html::a(
+                    				'<span class="fa fa-eye"></span>',
+                    				Yii::getAlias('@web') . '/vendors/view' . '/' . $model['category_id']);
+                    		},
+                    		'delete' => function ($url,$model,$key) {
+                    				return Html::a(
+                    				'<span class="fa fa-trash"></span>',
+                    				$url);
+                    		}
+                    	]
                     ]
                 ],
             ]); ?>

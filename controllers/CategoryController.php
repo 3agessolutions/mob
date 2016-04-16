@@ -9,8 +9,11 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\widgets\ActiveForm;
+use yii\web\UploadedFile;
 
 use app\models\Category;
+use app\models\FileUpload;
+
 
 class CategoryController extends Controller
 {
@@ -34,32 +37,24 @@ class CategoryController extends Controller
                 'pageSize' => 10,
             ]
         ]);
-
+        
         return $this->render('index', ['categories' => $categoryDataProvider]);
     }
-
-    public function actionAdd()
+    
+    public function actionAdd() 
     {
         $category = new Category();
-
+        
         if (Yii::$app->request->isAjax) {
             if ($category->load(Yii::$app->request->post())) {
-                $upload_file = $category->getUploadedFileName();
                 Yii::$app->response->format = Response::FORMAT_JSON;
-                if($category->save()) {
-                  if($upload_file !== false) {
-                    $upload_file.saveAs(Yii::getAlias('@web') . '/files/categories/');
-                  }
-                  return ['success' => true];
-                } else {
-                  return ['error' => false];
-                }
+                return ['success' => $category->save()];
             }
-
+            
             return $this->renderAjax('add', [
                 'model' => $category,
             ]);
-
+            
         } else {
             $this->layout='admin';
             if ($category->load(Yii::$app->request->post()) && $category->save()) {
@@ -69,39 +64,58 @@ class CategoryController extends Controller
             return $this->render('add', ['model' => $category]);
         }
     }
-
-    public function actionValidate()
+    
+    public function actionValidate() 
     {
         $category = new Category();
         $category->load(Yii::$app->request->post());
         if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             return ActiveForm::validate($category);
-        } else {
-            $this->layout='admin';
-            return ActiveForm::validate($category);
         }
     }
-
-    public function actionEdit()
+    
+    public function actionEdit() 
     {
         $this->layout='admin';
         return $this->render('edit');
     }
-
-    public function actionDelete($id)
+    
+    public function actionDelete($id) 
     {
-    	  $category = Category::find()->where(['category_id' => $id])->one();
+    	
+        $category = Category::find()->where(['category_id' => $id])->one();
         if($category->delete() >= 0) {
             //Yii::$app->response->format = Response::FORMAT_JSON;
             //return ['success' => true];
             $this->redirect(Yii::getAlias('@web') . '/category/index');
         }
     }
-
-    public function actionView($id)
+    
+    public function actionView($id) 
     {
         $this->layout='admin';
         return $this->render('view');
+    }
+    
+    public function actionAddicon($id)
+    {
+        $this->layout='admin';
+        $model = new FileUpload();
+        if (Yii::$app->request->isPost) {
+            $model->image = UploadedFile::getInstance($model, 'image');
+            $image = $model->upload();
+            if($image) {
+                $connection = Yii::$app->db;
+                try {
+                    $query = $connection->createCommand()
+                        ->update('mob_categories', ['image' => $image], ['category_id'=>intval($id)])
+                        ->execute();
+                } catch(Exception $e) {
+                    print_r($e);
+                }
+            }
+        }
+        return $this->render('uploadicon', ['model' => $model]);
     }
 }
