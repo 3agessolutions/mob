@@ -25,7 +25,7 @@ $this->title = 'Marriage On Budget - Category';
                 'class' => 'form-horizontal',
                 'enctype' => 'multipart/form-data'
             ]
-        ]); 
+        ]);
         ?>
         <div class="box-body">
             <?= $form->field($model, 'category_title'); ?>
@@ -51,10 +51,11 @@ $this->title = 'Marriage On Budget - Category';
                 success: function(data) {
                     $('.cssload-loader').hide();
                     if(data.success == true) {
-                        $('#msg-show').text('New Category added successfully').show();                      
+                        $('#msg-show').text('New Category added successfully').show();
                         $(self).get(0).reset();
+                        window.location.href = '" . Yii::getAlias('@web') . "/category/addicon/' + data.categoryId;
                     } else {
-                        $('#msg-show').text('Error in inserting record. Category Name already found').show();                      
+                        $('#msg-show').text('Error in inserting record. Category Name already found').show();
                         $(self).get(0).reset();
                     }
                 },
@@ -64,11 +65,11 @@ $this->title = 'Marriage On Budget - Category';
             });
             return false;
         });
-        
+
         $(document).on('beforeValidate', '#category-form', function () {
             $('.cssload-loader').show();
         });
-        
+
         $(document).on('afterValidate', '#category-form', function () {
             $('.cssload-loader').hide();
         });

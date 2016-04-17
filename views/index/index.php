@@ -38,9 +38,21 @@
 </div>
 <div id="content">
   <div class="container">
-    <h2 class="mob-title">Vendors</h2>
+    <h2 class="mob-title">Explore your interest</h2>
     <div id="mob-vendor-list">
-      <ul class="clearfix">
+      <? if(sizeof($categories) > 0) { ?>
+        <ul class="clearfix">
+          <? foreach ($categories as $index => $category) { ?>
+            <li>
+              <a href="#" title="<?= $category->category_title ?>">
+                <span class="vendor-icon" style="background-image: url('<?= Yii::getAlias('@web') . '/files/category/' . $category->image ?>')"></span>
+                <span class="vendor-title"><?= $category->category_title ?></span>
+              </a>
+            </li>
+          <? } ?>
+        </ul>
+      <? } ?>
+      <!-- <ul class="clearfix">
         <li class="vendor-venue">
           <a href="#" title="Venues">
             <span class="vendor-icon"></span>
@@ -71,7 +83,7 @@
             <span class="vendor-title">Photography</span>
           </a>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </div>

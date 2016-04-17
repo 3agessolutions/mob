@@ -8,15 +8,15 @@ use yii\base\security;
 class FileUpload extends Model
 {
     public $image;
-    
+
     public function rules()
     {
         return [
             [['image'], 'file', 'extensions' => 'png, jpg, svg']
         ];
     }
-    
-    public function upload() 
+
+    public function upload()
     {
         if ($this->validate()) {
             $fileName = Yii::$app->security->generateRandomString(24) . '.' . $this->image->extension;

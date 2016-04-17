@@ -20,11 +20,11 @@ $this->title = 'Marriage On Budget - Category';
                 'class' => 'form-horizontal',
                 'enctype' => 'multipart/form-data'
             ]
-        ]); 
+        ]);
         ?>
         <div class="box-body">
-            <?= 
-                $form->field($model, 'image')->fileInput(); 
+            <?=
+                $form->field($model, 'image')->fileInput();
             ?>
             <p id="msg-show" class="text-green"></p>
         </div>
@@ -36,39 +36,6 @@ $this->title = 'Marriage On Budget - Category';
 </section>
 <?php
     $this->registerJs("$(function () {
-        $('input[type='hidden']').remove();
-        $(document).on('submit', '#category-form', function () {
-            $('.cssload-loader').show();
-            var self = this;
-            $.ajax({
-                url: '',
-                type: 'POST',
-                data: $(self).serialize(),
-                contentType: false,
-                processData: false,
-                success: function(data) {
-                    $('.cssload-loader').hide();
-                    if(data.success == true) {
-                        $('#msg-show').text('Icon uploaded successfully').show();                      
-                        $(self).get(0).reset();
-                    } else {
-                        $('#msg-show').text('Error in uploading icon').show();                      
-                        $(self).get(0).reset();
-                    }
-                },
-                error: function() {
-                    $('.cssload-loader').hide();
-                }
-            });
-            return false;
-        });
         
-        $(document).on('beforeValidate', '#category-form', function () {
-            $('.cssload-loader').show();
-        });
-        
-        $(document).on('afterValidate', '#category-form', function () {
-            $('.cssload-loader').hide();
-        });
     });", $this::POS_END);
 ?>

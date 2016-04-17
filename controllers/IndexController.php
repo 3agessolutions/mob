@@ -17,12 +17,7 @@ class IndexController extends Controller
         $this->layout='home';
 
         $categoriesRecord = new Category();
-        $categories = array();
-        foreach ($categoriesRecord->getAllCategories() as $category => $value) {
-            $categories[$value['category_id']] = $value['category_title'];
-        }
-
-        return $this->render('index', ['categories' => $categories, 'cities' => $this->getCities()]);
+        return $this->render('index', ['categories' => $categoriesRecord->getAllCategories(), 'cities' => $this->getCities()]);
     }
 
     private function getCities()

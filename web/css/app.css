@@ -98,6 +98,7 @@
   color: #fff;
   line-height: 12px;
   text-transform: capitalize;
+  font-size: 14px;
   padding: 0px 10px;
 }
 .mob-contact {
@@ -107,6 +108,7 @@
   margin-bottom: 5px;
 }
 .mob-contact li a {
+  font-size: 14px;
   line-height: 18px;
   color: #fff;
 }
@@ -116,15 +118,79 @@
 }
 .mob-social li {
   display: inline-block;
+  margin: 0px 3px;
+}
+.mob-social li a {
+  display: block;
 }
 .mob-social li a i {
   color: #fff;
   display: inline-block;
   width: 24px;
   height: 24px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 27px;
   background: #00aeaf;
   border-radius: 100%;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
+}
+
+
+/** Content css **/
+#content {
+  padding: 15px 0px;
+}
+.mob-title {
+  font-size: 20px;
+  font-family: "OpenSansRegular";
+  text-align: center;
+  margin: 10px 0px;
+}
+.mob-title:before,
+.mob-title:after {
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 70px;
+  background: #C3C3C3;
+  position: relative;
+  z-index: 1;
+  top: -6px;
+}
+.mob-title:before {
+  right: 25px;
+}
+.mob-title:after {
+  left: 25px;
+}
+#mob-vendor-list ul {
+  padding-top: 40px;
+  text-align: center;
+}
+#mob-vendor-list li {
+  width: 150px;
+  height: 95px;
+  display: inline-block;
+}
+#mob-vendor-list li a {
+  display: block;
+  text-align: center;
+}
+#mob-vendor-list li:hover a {
+  background: #D6D6D6;
+}
+#mob-vendor-list .vendor-icon {
+  display: block;
+  height: 60px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 60px 55px;
+}
+#mob-vendor-list .vendor-title {
+  font-size: 14px;
+  display: block;
+  line-height: 18px;
+  padding-top: 10px;
+  color: #333333;
 }
