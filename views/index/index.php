@@ -52,38 +52,30 @@
           <? } ?>
         </ul>
       <? } ?>
-      <!-- <ul class="clearfix">
-        <li class="vendor-venue">
-          <a href="#" title="Venues">
-            <span class="vendor-icon"></span>
-            <span class="vendor-title">Venues</span>
-          </a>
-        </li>
-        <li class="vendor-cater">
-          <a href="#" title="Caterers">
-            <span class="vendor-icon"></span>
-            <span class="vendor-title">Caterers</span>
-          </a>
-        </li>
-        <li class="vendor-decor">
-          <a href="#" title="Decorators">
-            <span class="vendor-icon"></span>
-            <span class="vendor-title">Decorators</span>
-          </a>
-        </li>
-        <li  class="vendor-photo">
-          <a href="#" title="Photography">
-            <span class="vendor-icon"></span>
-            <span class="vendor-title">Photography</span>
-          </a>
-        </li>
-        <li  class="vendor-photo">
-          <a href="#" title="Photography">
-            <span class="vendor-icon"></span>
-            <span class="vendor-title">Photography</span>
-          </a>
-        </li>
-      </ul> -->
+    </div>
+
+    <h2 class="mob-title">Reviews By our Vendors</h2>
+    <div class="row">
+      <div class="col-sm-3 mob-review">
+        <p>Lorem Ipsum is simply dummy <br/>text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+        <h3>Richard MacLeod</h3>
+        <span>13th April 2016</span>
+      </div>
+      <div class="col-sm-3 mob-review">
+        <p>Lorem Ipsum is simply dummy <br/>text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+        <h3>Richard MacLeod</h3>
+        <span>13th April 2016</span>
+      </div>
+      <div class="col-sm-3 mob-review">
+        <p>Lorem Ipsum is simply dummy <br/>text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+        <h3>Richard MacLeod</h3>
+        <span>13th April 2016</span>
+      </div>
+      <div class="col-sm-3 mob-review">
+        <p>Lorem Ipsum is simply dummy <br/>text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+        <h3>Richard MacLeod</h3>
+        <span>13th April 2016</span>
+      </div>
     </div>
   </div>
 </div>

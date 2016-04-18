@@ -164,6 +164,9 @@
 .mob-title:after {
   left: 25px;
 }
+#mob-vendor-list {
+  padding-bottom: 10px;
+}
 #mob-vendor-list ul {
   padding-top: 40px;
   text-align: center;
@@ -172,6 +175,7 @@
   width: 150px;
   height: 95px;
   display: inline-block;
+  margin-bottom: 15px;
 }
 #mob-vendor-list li a {
   display: block;
@@ -193,4 +197,22 @@
   line-height: 18px;
   padding-top: 10px;
   color: #333333;
+}
+
+/** Testimonials **/
+.mob-review {
+  text-align: center;
+  padding: 20px 25px 0px;
+}
+.mob-review p {
+
+}
+.mob-review h3 {
+  color: #00aeaf;
+  font-size: 12px;
+  margin-bottom: 5px;
+  font-family: "OpenSansSemiBold";
+}
+.mob-review span {
+
 }
