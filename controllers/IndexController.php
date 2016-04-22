@@ -17,7 +17,7 @@ class IndexController extends Controller
         $this->layout='home';
 
         $categoriesRecord = new Category();
-        return $this->render('index', ['categories' => $categoriesRecord->getAllCategories(), 'cities' => $this->getCities()]);
+        return $this->render('index', ['categories' => $categoriesRecord->getAllCategories(7), 'cities' => $this->getCities()]);
     }
 
     private function getCities()

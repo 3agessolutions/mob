@@ -88,8 +88,8 @@ class CategoryController extends Controller
     public function actionDelete($id)
     {
 
-        $category = Category::find()->where(['category_id' => $id])->one();
-        if($category->delete() >= 0) {
+        $category = Category::find()->where(['category_id' => intval($id)])->one();
+        if($category != null && $category->delete() >= 0) {
             //Yii::$app->response->format = Response::FORMAT_JSON;
             //return ['success' => true];
             $this->redirect(Yii::getAlias('@web') . '/category/index');

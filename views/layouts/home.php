@@ -34,6 +34,7 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="mob-nav-menu">
                 <ul class="nav navbar-nav navbar-right">
+                  <li class="mob-current-city"><input type="text" name="selected-city" placeholder="Select City"/></li>
                   <li><a href="#">Home</a></li>
                   <li><a href="#">Vendors</a></li>
                   <li><a href="#">Gallery</a></li>

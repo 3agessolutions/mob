@@ -11,15 +11,61 @@
 }
 .navbar-default .navbar-nav>li>a {
   padding: 0px 25px;
-  color: #fff;
+  color: #ccc;
   line-height: 70px;
   text-transform: uppercase;
+}
+.navbar-default .navbar-nav>li>a:hover {
+  color: #fff;
+}
+.navbar-default li input {
+  width: 145px;
+  height: 30px;
+  border: none;
+  color: #fff;
+  padding: 0px;
+  background: none;
+  margin: 20px 10px 0px 0px;
+}
+.navbar-default li input:focus,
+.navbar-default li input:active {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #bbb;
+}
+.navbar-default input::-webkit-input-placeholder {
+  color: #ddd;
+}
+.navbar-default input:-moz-placeholder {
+  color: #ddd;
+}
+.navbar-default input::-moz-placeholder {
+  color: #ddd;
+}
+.navbar-default input:-ms-input-placeholder {
+  color: #ddd;
+}
+.navbar-default li.mob-current-city:before {
+  content: "\f041";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  float: left;
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
+  margin-top: 20px;
 }
 
 /** Banner css **/
 
 .mob-banner {
-  height: 500px;
+  height: 600px;
   position: relative;
 }
 .mob-banner-overlay {
@@ -32,7 +78,7 @@
   z-index: 1;
 }
 .mob-banner-inner {
-  height: 500px;
+  height: 600px;
   overflow: hidden;
 }
 .mob-banner-inner img {
@@ -49,6 +95,7 @@
 }
 .mob-banner-top p {
   padding: 30px 0px 20px 0px;
+  margin-top: 30px;
   font-size: 24px;
   font-family: "OpenSansRegular";
   text-align: center;
@@ -63,18 +110,26 @@
 #mob-search-vendor input {
   height: 100%;
   border: 0px;
+  font-size: 14px;
 }
 #mob-search-vendor .form-text {
   background: rgba(154, 165, 177, 0.5);
   color: #fff;
 }
 
-#mob-search-vendor .form-text:-moz-placeholder,
-#mob-search-vendor .form-text::-moz-placeholder,
-#mob-search-vendor .form-text::-webkit-input-placeholder,
-#mob-search-vendor .form-text:-ms-input-placeholder {
-  color: #fff;
+#mob-search-vendor .form-text::-webkit-input-placeholder {
+  color: #ddd;
 }
+#mob-search-vendor .form-text:-moz-placeholder {
+  color: #ddd;
+}
+#mob-search-vendor .form-text::-moz-placeholder {
+  color: #ddd;
+}
+#mob-search-vendor .form-text:-ms-input-placeholder {
+  color: #ddd;
+}
+
 .mob-banner-top ul {
   list-style: none;
   text-align: center;
@@ -139,13 +194,14 @@
 
 /** Content css **/
 #content {
-  padding: 15px 0px;
+  padding: 20px 0px 15px;
 }
 .mob-title {
-  font-size: 20px;
+  font-size: 24px;
   font-family: "OpenSansRegular";
   text-align: center;
   margin: 10px 0px;
+  color: #333;
 }
 .mob-title:before,
 .mob-title:after {
@@ -164,33 +220,67 @@
 .mob-title:after {
   left: 25px;
 }
+#mob-vendor-list {
+  width: 650px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin: 40px 0px 0px -325px;
+  background: rgb(0,0,0);
+  background: rgba(0,0,0,0.4);
+}
 #mob-vendor-list ul {
-  padding-top: 40px;
   text-align: center;
+  margin: 0px;
 }
 #mob-vendor-list li {
-  width: 150px;
-  height: 95px;
+  width: 90px;
+  height: 70px;
   display: inline-block;
+  padding-top: 3px;
+  border-right: 1px solid #646D6D;
+}
+#mob-vendor-list li:last-child {
+  border-right: 0px;
+}
+#mob-vendor-list li:hover {
+  background: rgba(0,0,0,0.6);
 }
 #mob-vendor-list li a {
   display: block;
   text-align: center;
 }
-#mob-vendor-list li:hover a {
-  background: #D6D6D6;
-}
 #mob-vendor-list .vendor-icon {
   display: block;
-  height: 60px;
+  height: 45px;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 60px 55px;
+  background-size: 30px auto;
 }
 #mob-vendor-list .vendor-title {
-  font-size: 14px;
+  font-family: "OpenSansRegular";
+  font-size: 12px;
   display: block;
   line-height: 18px;
-  padding-top: 10px;
-  color: #333333;
+  color: #fff;
+  padding-top: 0px;
+}
+
+
+/** Vendor service styles **/
+#vendor-service {
+  width: 840px;
+  margin: 0px auto;
+}
+#vendor-service .service-item {
+  width: 250px;
+  margin: 0px 15px;
+}
+.service-item h3 {
+  text-transform: capitalize;
+  font-size: 14px;
+  font-family: "OpenSansSemiBold";
+  line-height: 24px;
+  color: #333;
+  text-align: center;
 }
