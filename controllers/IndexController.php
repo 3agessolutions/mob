@@ -15,7 +15,6 @@ class IndexController extends Controller
     public function actionIndex()
     {
         $this->layout='home';
-
         $categoriesRecord = new Category();
         return $this->render('index', ['categories' => $categoriesRecord->getAllCategories(7), 'cities' => $this->getCities()]);
     }

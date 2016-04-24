@@ -3,11 +3,14 @@
   color: #fff;
 }
 .navbar-default .navbar-brand {
-  color: #fff;
+  color: #ccc;
   padding: 15px 0px;
   height: auto;
   margin: 0px;
   text-transform: uppercase;
+}
+.navbar-default .navbar-brand:hover {
+  color: #fff;
 }
 .navbar-default .navbar-nav>li>a {
   padding: 0px 25px;
@@ -22,7 +25,7 @@
   width: 145px;
   height: 30px;
   border: none;
-  color: #fff;
+  color: #ccc;
   padding: 0px;
   background: none;
   margin: 20px 10px 0px 0px;
@@ -31,19 +34,19 @@
 .navbar-default li input:active {
   border: none;
   outline: none;
-  border-bottom: 1px solid #bbb;
+  color: #fff;
 }
 .navbar-default input::-webkit-input-placeholder {
-  color: #ddd;
+  color: #ccc;
 }
 .navbar-default input:-moz-placeholder {
-  color: #ddd;
+  color: #ccc;
 }
 .navbar-default input::-moz-placeholder {
-  color: #ddd;
+  color: #ccc;
 }
 .navbar-default input:-ms-input-placeholder {
-  color: #ddd;
+  color: #ccc;
 }
 .navbar-default li.mob-current-city:before {
   content: "\f041";
@@ -111,6 +114,11 @@
   height: 100%;
   border: 0px;
   font-size: 14px;
+}
+#mob-search-vendor input:active,
+#mob-search-vendor input:focus {
+  outline: 0;
+  border: 0;
 }
 #mob-search-vendor .form-text {
   background: rgba(154, 165, 177, 0.5);
@@ -221,11 +229,11 @@
   left: 25px;
 }
 #mob-vendor-list {
-  width: 650px;
+  width: 630px;
   position: absolute;
   bottom: 20px;
   left: 50%;
-  margin: 40px 0px 0px -325px;
+  margin: 40px 0px 0px -315px;
   background: rgb(0,0,0);
   background: rgba(0,0,0,0.4);
 }
@@ -237,6 +245,7 @@
   width: 90px;
   height: 70px;
   display: inline-block;
+  float: left;
   padding-top: 3px;
   border-right: 1px solid #646D6D;
 }

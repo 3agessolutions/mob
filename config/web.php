@@ -44,7 +44,8 @@ $config = [
             'showScriptName'=>false,
             'rules' => [
                 '<controller>/<action>' => '<controller>/<action>',
-                '<controller>/<action>/<id:\d+>' => '<controller>/<action>'
+                '<controller>/<action>/<id:\d+>' => '<controller>/<action>',
+                '<controller>/<action>/<city>' => '<controller>/<action>'
             ]
         ]
     ],

@@ -6,3 +6,14 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # otherwise forward it to index.php
 RewriteRule . index.php
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|xml|gz|svg)$">
+    Header append Vary: Accept-Encoding
+  </FilesMatch>
+</IfModule>
+
+# 1 Month for most static assets
+<filesMatch ".(css|jpg|jpeg|png|gif|js|ico|svg|woff|eot|ttf)$">
+Header set Cache-Control "max-age=2592000, public"
+</filesMatch>

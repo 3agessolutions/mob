@@ -34,7 +34,7 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="mob-nav-menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li class="mob-current-city"><input type="text" name="selected-city" placeholder="Select City"/></li>
+                  <li class="mob-current-city"><input type="text" name="selected-city" id="mob-input-city" placeholder="Select City"/></li>
                   <li><a href="#">Home</a></li>
                   <li><a href="#">Vendors</a></li>
                   <li><a href="#">Gallery</a></li>
@@ -47,12 +47,20 @@
           <?php $this->beginBody() ?>
           <?= $content ?>
           <?php
-            $this->registerJsFile(Yii::getAlias('@web') . '/web/js/jQuery-2.1.4.min.js', ["position" => $this::POS_END]);
-            $this->registerJsFile(Yii::getAlias('@web') . '/web/js/bootstrap.min.js', ["position" => $this::POS_END]);
-            $this->registerJsFile(Yii::getAlias('@web') . '/web/js/plugins/bxslider/jquery.bxslider.min.js', ["position" => $this::POS_END]);
             $this->endBody();
           ?>
         </div>
+        <div id="loader"><p></p></div>
+        <?php
+            $this->registerJsFile(Yii::getAlias('@web') . '/web/js/jQuery-2.1.4.min.js', ["position" => $this::POS_END]);
+            $this->registerJsFile(Yii::getAlias('@web') . '/web/js/bootstrap.min.js', ["position" => $this::POS_END]);
+            $this->registerJsFile(Yii::getAlias('@web') . '/web/js/plugins/bxslider/jquery.bxslider.min.js', ["position" => $this::POS_END]);
+            $this->registerJsFile(Yii::getAlias('@web') . '/web/js/site.js', ["position" => $this::POS_END]);
+            $this->registerJs("$(function () {
+
+            })", $this::POS_END);
+        ?>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyKy7OEPb1e5Nh8CqvSIjgvGQFM9PKMjU&libraries=places&callback=mob.initmap"></script>
     </body>
 </html>
 <?php $this->endPage() ?>
