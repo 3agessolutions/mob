@@ -160,4 +160,11 @@ class VendorsController extends VendorActionsController
         $this->layout='admin';
         return $this->render('view');
     }
+
+    /** Client side vendors **/
+    public function actionCategories()
+    {
+      $this->layout='home';
+      return $this->render('categories');
+    }
 }

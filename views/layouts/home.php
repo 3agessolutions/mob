@@ -4,6 +4,7 @@
   use yii\helpers\Html;
   use app\assets\AppAsset;
   AppAsset::register($this);
+  $selectedCity = Yii::$app->session->get('city') ? Yii::$app->session->get('city') : 'Chennai';
 ?>
 <?php $this->beginPage() ?>
 <html>
@@ -15,7 +16,7 @@
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <?php $this->head() ?>
     </head>
-    <body>
+    <body class="<?= $this->title ? $this->title : '' ?>">
         <div class="wrapper">
 
           <nav class="navbar navbar-default navbar-fixed-top">
@@ -34,7 +35,12 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="mob-nav-menu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li class="mob-current-city"><input type="text" name="selected-city" id="mob-input-city" placeholder="Select City"/></li>
+                  <li class="mob-current-city">
+                    <form action="<?= Yii::getAlias('@web')?>" id="form-city" method="get">
+                      <input type="text" name="city" id="mob-input-city" placeholder="Select City"
+                        value="<?= $selectedCity ?>"/>
+                    </form>
+                  </li>
                   <li><a href="#">Home</a></li>
                   <li><a href="#">Vendors</a></li>
                   <li><a href="#">Gallery</a></li>

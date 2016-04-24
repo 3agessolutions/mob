@@ -48,7 +48,7 @@
 .navbar-default input:-ms-input-placeholder {
   color: #ccc;
 }
-.navbar-default li.mob-current-city:before {
+.navbar-default li.mob-current-city form:before {
   content: "\f041";
   display: inline-block;
   width: 30px;

@@ -1,5 +1,4 @@
-a:hover,
-a:active {
+a:hover, a:active {
   text-decoration: none;
 }
 ul {
@@ -16,11 +15,15 @@ body {
   margin: 0px;
 }
 .navbar-default {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   border: none;
+}
+.navbar-fixed-bottom, .navbar-fixed-top {
+  z-index: 999;
 }
 
 /** common **/
+
 .form-text {
   font-family: "OpenSansRegular";
   padding: 0px 10px;
@@ -34,10 +37,10 @@ body {
   text-transform: uppercase;
 }
 
-
 /** Loader **/
+
 #loader {
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0px;
   left: 0px;

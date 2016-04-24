@@ -1,5 +1,5 @@
 <?php
-    $this->title = 'Marriage on Budget';
+    $this->title = 'Home';
 ?>
 <div class="mob-banner">
   <div class="mob-banner-inner">
@@ -41,7 +41,7 @@
         <ul class="clearfix">
           <?php for ($i = 0; $i < 6; $i++) { $category = $categories[$i]; ?>
             <li>
-              <a href="#" title="<?= $category->category_title ?>">
+              <a href="<?= Yii::getAlias('@web') . '/vendors/categories/' ?>" title="<?= $category->category_title ?>">
                 <span class="vendor-icon" style="background-image: url('<?= Yii::getAlias('@web') . '/files/category/' . $category->image ?>')"></span>
                 <span class="vendor-title"><?= $category->category_title ?></span>
               </a>
