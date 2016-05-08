@@ -38,4 +38,16 @@ class Vendors extends ActiveRecord
             ->one();
         return $vendors;
     }
+    public static function getVendorObject($categoryId)
+    {
+      $query = new Query();
+      $vendors = $query
+          ->select('mob_vendor_master.*, mob_vendor_location.*, mob_categories.category_title, mob_categories.category_desc')
+          ->from('mob_vendor_master')
+          ->leftJoin('mob_categories', '`mob_vendor_master`.`vendor_categories` = `mob_categories`.`category_id`')
+          ->leftJoin('mob_vendor_location', '`mob_vendor_master`.`vendor_id` = `mob_vendor_location`.`vendor_id`')
+          ->where(['mob_vendor_master.vendor_categories' => $categoryId])
+          ->all();
+      return $vendors;
+    }
 }

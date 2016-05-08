@@ -105,6 +105,12 @@
   color: #fff;
   text-shadow: 2px 2px 4px #000000;
 }
+/*.page-inner .mob-banner {
+  height: 250px;
+}
+.page-inner .mob-banner-inner {
+  height: 250px;
+}*/
 #mob-search-vendor {
   background: rgba(0, 0, 0, 0.6);
   padding: 15px;
@@ -199,10 +205,46 @@
   -webkit-border-radius: 100%;
 }
 
+/* Breadcrum */
+.mob-bread-crum {
+  margin: 10px 0px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.mob-bread-crum ul {
+  height: 30px;
+  list-style: none;
+}
+.mob-bread-crum li {
+  float: left;
+  font-size: 14px;
+  line-height: 30px;
+  padding: 0px 10px 0px 0px;
+}
+.mob-bread-crum li a {
+  display: block;
+}
 
 /** Content css **/
 #content {
   padding: 20px 0px 15px;
+}
+#content h1, #content h2, #content h3,
+#content h4, #content h5, #content h6{
+  font-family: "OpenSansSemiBold";
+  margin: 0px;
+  color: #333;
+}
+#content h1 {
+  font-size: 18px;
+}
+#content h2 {
+  font-size: 16px;
+}
+#content h3 {
+  font-size: 14px;
+}
+#content h4 {
+  font-size: 12px;
 }
 .mob-title {
   font-size: 24px;
@@ -292,4 +334,42 @@
   line-height: 24px;
   color: #333;
   text-align: center;
+}
+
+/** Vendor list **/
+.mob-vendor-list {
+  list-style: none;
+  margin: 15px 0px;
+}
+.mob-vendor-list li {
+  width: 150px;
+  height: 190px;
+  float: left;
+  margin: 0px 20px 10px 0px;
+  background: #f9f9f9;
+  border: 1px solid #f2f2f2;
+}
+.mob-vendor-list a {
+  display: block;
+}
+.mob-vendor-list img {
+  height: 130px;
+  width: 100%;
+  display: block;
+}
+.mob-vendor-list span {
+  display: block;
+}
+.mob-vendor-list .vendor-info {
+  padding: 0px 10px;
+}
+.mob-vendor-list .vendor-title,
+.mob-vendor-list .vendor-location  {
+  font-size: 14px;
+  line-height: 20px;
+  padding-top: 5px;
+  color: #333;
+}
+.mob-vendor-list .vendor-location {
+  font-size: 12px;
 }

@@ -1,4 +1,5 @@
 <?php
+    use app\utility\CommonUtility;
     $this->title = 'Home';
 ?>
 <div class="mob-banner">
@@ -19,7 +20,7 @@
       <ul class="mob-vend-cities">
         <?php if(sizeof($cities) > 0) {
           foreach ($cities as $index => $city) { ?>
-            <li><a href="<?= Yii::getAlias('@web') . '/cvendors/city/' . $city['vendor_city'] ?>" title="<?= $city['vendor_city'] ?>"><?= $city['vendor_city'] ?></a></li>
+            <li><a href="<?= Yii::getAlias('@web') . '?city=' . $city['vendor_city'] ?>" title="<?= $city['vendor_city'] ?>"><?= $city['vendor_city'] ?></a></li>
         <?php } } else { ?>
             <li><a href="#" title="Vendor cities">Cities</a></li>
         <?php } ?>
@@ -41,7 +42,7 @@
         <ul class="clearfix">
           <?php for ($i = 0; $i < 6; $i++) { $category = $categories[$i]; ?>
             <li>
-              <a href="<?= Yii::getAlias('@web') . '/vendors/categories/' ?>" title="<?= $category->category_title ?>">
+              <a href="<?= CommonUtility::getUrl(Yii::getAlias('@web') . '/myvendor/',['category' => $category->category_id, 'city' => $selectedCity])  ?>" title="<?= $category->category_title ?>">
                 <span class="vendor-icon" style="background-image: url('<?= Yii::getAlias('@web') . '/files/category/' . $category->image ?>')"></span>
                 <span class="vendor-title"><?= $category->category_title ?></span>
               </a>

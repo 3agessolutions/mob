@@ -21,7 +21,12 @@ body {
 .navbar-fixed-bottom, .navbar-fixed-top {
   z-index: 999;
 }
-
+.page-inner .navbar-default {
+  background: #404040;
+}
+.page-inner .navbar-default {
+  position: static;
+}
 /** common **/
 
 .form-text {

@@ -1,7 +1,8 @@
 var mob = {
   init: function() {
     //mob.showLoader();
-    mob.common();
+    //mob.common();
+    mob.hideLoader();
   },
   showLoader: function() {
     $('#loader').show();
@@ -53,4 +54,6 @@ var mob = {
     });
   }
 };
-mob.init();
+$(document).ready(function(){
+  mob.init();
+});
