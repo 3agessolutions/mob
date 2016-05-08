@@ -11,32 +11,34 @@ $this->title = 'Marriage On Budget - Category';
         <div class="box-header with-border">
             <h3 class="box-title">Add Category</h3>
         </div>
-        <?php if (Yii::$app->session->hasFlash('categorysave')): ?>
-            <div id="category-success" class="has-padding text-green">Category Added Successfully</div>
-        <?php endif ?>
-        <?php $form = ActiveForm::begin([
-            'id' => 'category-form',
-            'enableAjaxValidation' => true,
-            'validateOnBlur' => false,
-            'validateOnChange' => false,
-            'validateOnSubmit' => true,
-            'validationUrl' => 'validate',
-            'options' => [
-                'class' => 'form-horizontal',
-                'enctype' => 'multipart/form-data'
-            ]
-        ]);
-        ?>
         <div class="box-body">
-            <?= $form->field($model, 'category_title'); ?>
-            <?= $form->field($model, 'category_desc')->textarea(); ?>
-            <?= $form->field($model, 'is_system')->checkbox(array('label'=>''))->label('System category'); ?>
-            <p id="msg-show" class="text-green"></p>
+          <div id="category-basic">
+              <?php if (Yii::$app->session->hasFlash('categorysave')): ?>
+                  <div id="category-success" class="has-padding text-green">Category Added Successfully</div>
+              <?php endif ?>
+              <?php $form = ActiveForm::begin([
+                  'id' => 'category-form',
+                  'enableAjaxValidation' => true,
+                  'validateOnBlur' => false,
+                  'validateOnChange' => false,
+                  'validateOnSubmit' => true,
+                  'validationUrl' => 'validate',
+                  'options' => [
+                      'class' => 'form-horizontal',
+                      'enctype' => 'multipart/form-data'
+                  ]
+              ]);
+              ?>
+              <?= $form->field($category, 'category_title'); ?>
+              <?= $form->field($category, 'category_desc')->textarea(); ?>
+              <p id="msg-show" class="text-green"></p>
+              <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+              <?php ActiveForm::end(); ?>
+          </div>
+          <div id="category-property" style="display:none;">
+              <div id="data-grid"></div>
+          </div>
         </div>
-        <div class="box-footer">
-            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
-        </div>
-        <?php ActiveForm::end(); ?>
     </div>
 </section>
 <?php
@@ -53,7 +55,16 @@ $this->title = 'Marriage On Budget - Category';
                     if(data.success == true) {
                         $('#msg-show').text('New Category added successfully').show();
                         $(self).get(0).reset();
-                        window.location.href = '" . Yii::getAlias('@web') . "/category/addicon/' + data.categoryId;
+                        $('#category-form').hide();
+                        $('#category-property').show();
+                        $('#data-grid').dataGrid({
+                            action: '" . Yii::getAlias('@web') . "/category/saveproperty',
+                            method: 'post',
+                            sucess: function(){
+                              alert('success')
+                            },
+                            categoryId: data.categoryId
+                        });
                     } else {
                         $('#msg-show').text('Error in inserting record. Category Name already found').show();
                         $(self).get(0).reset();

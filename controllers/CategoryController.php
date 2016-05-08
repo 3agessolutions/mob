@@ -12,6 +12,7 @@ use yii\widgets\ActiveForm;
 use yii\web\UploadedFile;
 
 use app\models\Category;
+use app\models\CategoryProperty;
 use app\models\FileUpload;
 
 
@@ -44,7 +45,6 @@ class CategoryController extends Controller
     public function actionAdd()
     {
         $category = new Category();
-
         if (Yii::$app->request->isAjax) {
             if ($category->load(Yii::$app->request->post())) {
                 Yii::$app->response->format = Response::FORMAT_JSON;
@@ -56,7 +56,7 @@ class CategoryController extends Controller
             }
 
             return $this->renderAjax('add', [
-                'model' => $category,
+                'category' => $category,
             ]);
 
         } else {
@@ -65,7 +65,32 @@ class CategoryController extends Controller
                 Yii::$app->session->setFlash('categorysave');
                 return $this->refresh();
             }
-            return $this->render('add', ['model' => $category]);
+            return $this->render('add', ['category' => $category]);
+        }
+    }
+
+    public function actionSaveproperty()
+    {
+        if (Yii::$app->request->isAjax) {
+          $properties = Yii::$app->request->post();
+          $propertyArray = array();
+          $index = 0;
+
+          foreach ($properties['category_property'] as $name) {
+            $propertyArray[$index] = array($name, $properties['category_data_type'][$index], $properties['category_value'][$index]);
+            // array_push($propertyArray[$index], $name, $properties['category_data_type'][$index], $properties['category_value'][$index]);
+            $index++;
+          }
+
+          foreach ($propertyArray as $value) {
+            $property = new CategoryProperty();
+            $property['category_id'] = $properties['id'];
+            $property['category_property'] = $value[0];
+            $property['category_data_type'] = $value[1];
+            $property['category_value'] = $value[2];
+            var_export($property);
+            $property->save();
+          }
         }
     }
 

@@ -93,6 +93,7 @@ AdminAsset::register($this);
     <?php
       $this->registerJsFile(Yii::getAlias('@web') . '/web/js/plugins/spinner/jquery.bootstrap-touchspin.js', []);
       $this->registerJsFile(Yii::getAlias('@web') . '/web/js/plugins/rangeslider/bootstrap-slider.js', []);
+      $this->registerJsFile(Yii::getAlias('@web') . '/web/js/plugins/datagrid/datagrid.js', []);
       $this->registerJsFile(Yii::getAlias('@web') . '/web/js/select2.min.js', []);
       $this->registerJsFile(Yii::getAlias('@web') . '/web/js/app.min.js', []);
     ?>

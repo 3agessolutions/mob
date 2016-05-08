@@ -28,6 +28,7 @@ class AdminAsset extends AssetBundle
         'web/css/plugins/daterangepicker/daterangepicker-bs3.css',
         'web/css/plugins/spinner/jquery.bootstrap-touchspin.css',
         'web/css/plugins/rangeslider/slider.css',
+        'web/css/plugins/datagrid/datagrid.css',
         'web/css/select2.min.css',
         'web/css/mob.css'
 

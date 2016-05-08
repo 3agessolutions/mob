@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=mob;',
-    //'dsn' => 'mysql:host=localhost;port=8889;dbname=mob;unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock',
-    'username' => 'mob',
+    'dsn' => 'mysql:host=localhost;dbname=mob_new;',
+    //'dsn' => 'mysql:host=localhost;port=8889;dbname=mob_new;unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock',
+    'username' => 'mobnew',
     'password' => 'mob@123',
     'charset' => 'utf8',
 ];

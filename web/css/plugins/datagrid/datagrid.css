@@ -1,0 +1,50 @@
+#data-grid {
+  width: 500px;
+}
+#data-grid .grid-header {
+  color: #333;
+  background: #ddd;
+}
+#data-grid .grid-header::before,
+#data-grid .grid-header::after {
+  content: " ";
+  display: table;
+}
+#data-grid .grid-header::after{
+  clear: both;
+}
+#data-grid .grid-body {
+  padding-top: 5px;
+}
+#data-grid .grid-row::before,
+#data-grid .grid-row::after {
+  content: " ";
+  display: table;
+}
+#data-grid .grid-row::after {
+  clear: both;
+}
+#data-grid .grid-col {
+  float: left;
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+}
+#data-grid .grid-act {
+  width: 50px;
+  text-align: center;
+}
+#data-grid input,
+#data-grid select {
+  width: 140px;
+  height: 24px;
+  margin-top: 3px;
+  padding: 0px;
+  border-radius:0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+}
+#data-grid .grid-footer {
+  padding-top: 10px;
+}
