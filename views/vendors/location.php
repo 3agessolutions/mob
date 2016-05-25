@@ -147,7 +147,7 @@ $this->title = 'Marriage On Budget - Vendors';
                         if(data.success == true) {
                             if(data.info == 'services') {
                                 $('#loc-msg-show').text('Vendor location updated successfully').show();
-                                window.location.href = '" . Yii::getAlias('@web') . "/vendors';
+                                window.location.href = '" . Yii::getAlias('@web') . "/vendors/?categoryid=' + data.categoryId;
                             }
                         } else {
                             $('#loc-msg-show').text('Error in inserting record.').show();

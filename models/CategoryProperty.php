@@ -14,12 +14,17 @@ class CategoryProperty extends ActiveRecord
     {
         return [
             [['category_id', 'category_property', 'category_data_type'], 'required'],
-            [['category_value'], 'string']
+            [['category_unit', 'category_value'], 'string']
         ];
     }
 
     public static function tableName()
     {
         return 'mob_categories_properties';
+    }
+
+    public static function getCategoryById($id)
+    {
+        return CategoryProperty::find()->where(['category_id' => $id])->all();
     }
 }

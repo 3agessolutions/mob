@@ -3,6 +3,7 @@
 namespace app\models;
 use yii\db\ActiveRecord;
 use yii\web\UploadedFile;
+use app\models\Vendors;
 
 class Category extends ActiveRecord
 {
@@ -35,6 +36,11 @@ class Category extends ActiveRecord
     public function getCategoryByName($title)
     {
         return Category::find()->where(['category_title' => $title])->one();
+    }
+
+    public function getCategoryById($id)
+    {
+        return Category::find()->where(['category_id' => $id])->one();
     }
 
     public function getAllCategories()

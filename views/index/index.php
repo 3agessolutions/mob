@@ -40,10 +40,15 @@
     <div id="mob-vendor-list">
       <?php if(sizeof($categories) > 0) { ?>
         <ul class="clearfix">
-          <?php for ($i = 0; $i < 6; $i++) { $category = $categories[$i]; ?>
+          <?php
+            $length = sizeof($categories) > 6 ? 6 : sizeof($categories);
+            for ($i = 0; $i < $length; $i++) {
+              $category = $categories[$i];
+          ?>
             <li>
               <a href="<?= CommonUtility::getUrl(Yii::getAlias('@web') . '/myvendor/',['category' => $category->category_id, 'city' => $selectedCity])  ?>" title="<?= $category->category_title ?>">
-                <span class="vendor-icon" style="background-image: url('<?= Yii::getAlias('@web') . '/files/category/' . $category->image ?>')"></span>
+                <?php $backgroundImage = $category->image ? Yii::getAlias('@web') . '/files/category/' . $category->image : Yii::getAlias('@web') . '/web/css/images/vendor.svg'; ?>
+                <span class="vendor-icon" style="background-image: url('<?= $backgroundImage ?>')"></span>
                 <span class="vendor-title"><?= $category->category_title ?></span>
               </a>
             </li>

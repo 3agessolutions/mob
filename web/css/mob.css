@@ -1,3 +1,6 @@
+body {
+  background: #ECF0F5;
+}
 select  {
   background: #fff;
 }
@@ -124,38 +127,37 @@ span.select2.select2-container.select2-container--default {
   border-radius: 0px;
 }
 
+.control-option {}
 
 /** Form css horizontal css **/
-#venue-form {
+#vendor-form {
   margin: 20px 10px;
 }
-#venue-form .control-label {
+#vendor-form .control-label {
   float: left;
   width: 30%;
   text-align: left;
 }
-#venue-form .form-control {
+#vendor-form .form-control,
+#vendor-form .control-option {
   float: left;
   width: 70%;
 }
-#venue-form .form-group:before,
-#venue-form .form-group:after {
+#vendor-form .form-group:before,
+#vendor-form .form-group:after {
   display: table;
   content: "";
 }
-#venue-form .form-group:after {
+#vendor-form .form-group:after {
   clear: both;
 }
-#venue-form .form-group .help-block {
+#vendor-form .form-group .help-block {
   margin-left: 30%;
 }
-#venue-form .btn-primary {
+#vendor-form .btn-primary {
   margin-left: 30%;
 }
-#venue-form .form-group #venues-venue_type,
-#venue-form .form-group #venues-venue_space  {
-  float: left;
-}
+
 
 #venue-form .slider {
   width: 70% !important;
@@ -178,4 +180,37 @@ span.select2.select2-container.select2-container--default {
 }
 #venue-form .help-block {
   clear: both;
+}
+
+/** Vendor list **/
+.admin-vendor-list {
+  list-style: none;
+  margin: 0px;
+  padding: 10px;
+}
+.admin-vendor-list li {
+  width: 85px;
+  height: 85px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background: #3C8DBC;
+}
+.admin-vendor-list li a {
+  display: block;
+}
+.admin-vendor-list span {
+  display: block;
+}
+.admin-vendor-list .vendor-icon {
+  height: 60px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50px;
+}
+.admin-vendor-list .vendor-title {
+  font-size: 14px;
+  line-height: 24px;
+  color: #fff;
+  text-align: center;
 }

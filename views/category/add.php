@@ -51,6 +51,7 @@ $this->title = 'Marriage On Budget - Category';
                 type: 'POST',
                 data: $(this).serialize(),
                 success: function(data) {
+                    console.log(data);
                     $('.cssload-loader').hide();
                     if(data.success == true) {
                         $('#msg-show').text('New Category added successfully').show();
@@ -60,8 +61,8 @@ $this->title = 'Marriage On Budget - Category';
                         $('#data-grid').dataGrid({
                             action: '" . Yii::getAlias('@web') . "/category/saveproperty',
                             method: 'post',
-                            sucess: function(){
-                              alert('success')
+                            success: function(){
+                              window.location.href = '" . Yii::getAlias('@web') . "/category/addicon/' + data.categoryId;
                             },
                             categoryId: data.categoryId
                         });

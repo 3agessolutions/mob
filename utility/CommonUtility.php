@@ -67,4 +67,14 @@ class CommonUtility {
 
         return $venueSpaceName;
     }
+
+    public static function getFieldName($name)
+    {
+        if(strlen($name) > 0)
+        {
+            $name = strtolower($name);
+            $name = str_replace(' ', '_', $name);
+            return $name;
+        }
+    }
 }

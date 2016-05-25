@@ -29,7 +29,7 @@
       var html = '<form action="' + this.options.action + '" method="' + this.options.method + '">';
       html += '<input type="hidden" name="id" value="' + this.options.categoryId + '"/>';
       html += '<div class="grid-header">';
-      html += '<div class="grid-col">Property</div><div class="grid-col">Data Type</div><div class="grid-col">Value</div><div class="grid-col grid-act"></div>';
+      html += '<div class="grid-col">Property</div><div class="grid-col">Data Type</div><div class="grid-col">Value</div><div class="grid-col">Unit</div><div class="grid-col grid-act"></div>';
       html += '</div>';
       html += '<div class="grid-body">';
       html += this.rowHTML();
@@ -47,11 +47,13 @@
       html += '<select name="category_data_type[]">';
       html += '<option value="T">Text</option>';
       html += '<option value="I">Number</option>';
+      html += '<option value="D">Decimal</option>';
       html += '<option value="C">Choice</option>';
       html += '<option value="R">Radio</option>';
       html += '</select>';
       html += '</div>';
       html += '<div class="grid-col"><input type="" name="category_value[]" value=""/></div>';
+      html += '<div class="grid-col"><input type="" name="category_unit[]" value=""/></div>';
       html += '<div class="grid-col grid-act"><a href="#" title="Add new row"><i class="fa fa-plus"></i></a></div>';
       html += '</div>';
       return html;

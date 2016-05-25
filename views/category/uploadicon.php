@@ -36,6 +36,6 @@ $this->title = 'Marriage On Budget - Category';
 </section>
 <?php
     $this->registerJs("$(function () {
-        
+
     });", $this::POS_END);
 ?>

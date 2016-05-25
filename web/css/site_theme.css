@@ -21,6 +21,12 @@ body {
 .navbar-fixed-bottom, .navbar-fixed-top {
   z-index: 999;
 }
+.page-inner {
+  /*background: #f4f4f4;*/
+}
+.page-inner #content {
+  padding-top: 0px;
+}
 .page-inner .navbar-default {
   background: #404040;
 }
@@ -40,6 +46,47 @@ body {
   font-size: 12px;
   color: #fff;
   text-transform: uppercase;
+}
+
+/** custom check **/
+
+.custom-check {
+  padding-top: 7px;
+}
+.custom-check input {
+  display: none;
+}
+.custom-check label {
+  height: 20px;
+  line-height: 20px;
+  padding: 0px 0px 0px 25px;
+  position: relative;
+  cursor: pointer;
+  font-weight: normal;
+  color: #000;
+}
+.custom-check input + label:before {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: absolute;
+  left: 0px;
+  top: 2px;
+
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  content: " ";
+  line-height: 14px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+.custom-check input:checked + label:before {
+  display: inline-block;
+  content: "\f00c";
 }
 
 /** Loader **/

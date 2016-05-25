@@ -40,7 +40,7 @@ $this->title = 'Marriage On Budget - Vendors';
                                 <?= $form->field($model, 'vendor_categories')->dropDownList($category) ?>
                                 <?= $form->field($model, 'vendor_phone') ?>
                                 <?= $form->field($model, 'vendor_email') ?>
-                                <?= $form->field($model, 'vendor_description')->textarea(); ?>                
+                                <?= $form->field($model, 'vendor_description')->textarea(); ?>
                             </div>
                             <div class="col-md-6">
                                 <?= $form->field($model, 'vendor_url') ?>
@@ -75,11 +75,11 @@ $this->title = 'Marriage On Budget - Vendors';
                     $('.cssload-loader').hide();
                     if(data.success == true) {
                         if(data.info == 'basic') {
-                            $('#vendor-show').text('New Vendor added successfully').show();                      
+                            $('#vendor-show').text('New Vendor added successfully').show();
                             $(self).get(0).reset();
                         }
                     } else {
-                        $('#vendor-show').text('Error in inserting record.').show();                      
+                        $('#vendor-show').text('Error in inserting record.').show();
                         $(self).get(0).reset();
                     }
                 },
@@ -89,15 +89,15 @@ $this->title = 'Marriage On Budget - Vendors';
             });
             return false;
         });
-        
+
         $(document).on('beforeValidate', '#vendor-form', function () {
             $('.cssload-loader').show();
         });
-        
+
         $(document).on('afterValidate', '#vendor-form', function () {
             $('.cssload-loader').hide();
         });
-        
-        
+
+
     });", $this::POS_END);
 ?>

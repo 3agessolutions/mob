@@ -15,8 +15,8 @@ $this->title = 'Marriage On Budget - Vendors';
             <a href="<?= Yii::getAlias('@web') ?>/category/add" title="Add Category" class="btn btn-primary pull-right">Add Category</a>
         </div>
         <div class="box-body no-padding">
-        	<?php 
-        	Pjax::begin(['id'=>'pjax-categories']); 
+        	<?php
+        	Pjax::begin(['id'=>'pjax-categories']);
 			?>
             <?= GridView::widget([
                 'dataProvider' => $categories,
@@ -34,11 +34,6 @@ $this->title = 'Marriage On Budget - Vendors';
                     				'<span class="fa fa-plus"></span>',
                     				Yii::getAlias('@web') . '/category/addicon' . '/' . $model['category_id']);
                     		},
-                    		'view' => function ($url,$model,$key) {
-                    				return Html::a(
-                    				'<span class="fa fa-eye"></span>',
-                    				Yii::getAlias('@web') . '/vendors/view' . '/' . $model['category_id']);
-                    		},
                     		'delete' => function ($url,$model,$key) {
                     				return Html::a(
                     				'<span class="fa fa-trash"></span>',
@@ -48,8 +43,8 @@ $this->title = 'Marriage On Budget - Vendors';
                     ]
                 ],
             ]); ?>
-            <?php 
-            	Pjax::end(); 
+            <?php
+            	Pjax::end();
             ?>
         </div>
     </div>

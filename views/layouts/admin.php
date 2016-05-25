@@ -21,7 +21,7 @@ AdminAsset::register($this);
     <div class="wrapper">
       <header class="main-header">
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="<?= Yii::getAlias('@web') . '/admin' ?>" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
@@ -55,7 +55,7 @@ AdminAsset::register($this);
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="<?= Yii::getAlias('@web') . '/adminuser/logout'?>" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>
@@ -69,12 +69,12 @@ AdminAsset::register($this);
         <section class="sidebar">
           <ul class="sidebar-menu">
             <li class="header">Quick Links</li>
-            <li><a href="<?= Yii::getAlias('@web') ?>/vendors"><i class="fa fa-user fa-4 text-blue"></i> <span><?= APP_VENDOR_TITLE ?></span></a></li>
+            <li><a href="<?= Yii::getAlias('@web') ?>/vendors/list"><i class="fa fa-user fa-4 text-blue"></i> <span><?= APP_VENDOR_TITLE ?></span></a></li>
             <li><a href="<?= Yii::getAlias('@web') ?>/category"><i class="fa fa-th-list fa-4 text-blue"></i> <span><?= APP_CATEGORY_TITLE ?></span></a></li>
-            <li><a href="#"><i class="fa fa-gears fa-3 text-blue"></i> <span><?= APP_SERVICES_TITLE ?></span></a></li>
+            <!-- <li><a href="#"><i class="fa fa-gears fa-3 text-blue"></i> <span><?= APP_SERVICES_TITLE ?></span></a></li> -->
             <li class="header">User &amp; Permissions</li>
-            <li><a href="#"><i class="fa fa-users fa-3 text-blue"></i> <span>Users</span></a></li>
-            <li><a href="#"><i class="fa fa-wrench fa-3 text-blue"></i> <span>Permissions</span></a></li>
+            <li><a href="<?= Yii::getAlias('@web') ?>/adminuser"><i class="fa fa-users fa-3 text-blue"></i> <span>Users</span></a></li>
+            <!-- <li><a href="#"><i class="fa fa-wrench fa-3 text-blue"></i> <span>Permissions</span></a></li> -->
           </ul>
         </section>
       </aside>

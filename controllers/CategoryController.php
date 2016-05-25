@@ -18,6 +18,15 @@ use app\models\FileUpload;
 
 class CategoryController extends Controller
 {
+    public function beforeAction($action)
+    {
+        if($action->id !== 'login') {
+            $session = Yii::$app->session;
+            if($session->get('mob-admin_login') == NULL || $session->get('user_login_id') == NULL)
+              return $this->redirect(Yii::getAlias('@web') . '/adminuser/login');
+        }
+        return true;
+    }
     public function behaviors()
     {
         return [
@@ -77,8 +86,7 @@ class CategoryController extends Controller
           $index = 0;
 
           foreach ($properties['category_property'] as $name) {
-            $propertyArray[$index] = array($name, $properties['category_data_type'][$index], $properties['category_value'][$index]);
-            // array_push($propertyArray[$index], $name, $properties['category_data_type'][$index], $properties['category_value'][$index]);
+            $propertyArray[$index] = array($name, $properties['category_data_type'][$index], $properties['category_unit'][$index], $properties['category_value'][$index]);
             $index++;
           }
 
@@ -87,8 +95,8 @@ class CategoryController extends Controller
             $property['category_id'] = $properties['id'];
             $property['category_property'] = $value[0];
             $property['category_data_type'] = $value[1];
-            $property['category_value'] = $value[2];
-            var_export($property);
+            $property['category_unit'] = $value[2];
+            $property['category_value'] = $value[3];
             $property->save();
           }
         }

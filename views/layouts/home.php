@@ -61,6 +61,7 @@
             $this->registerJsFile(Yii::getAlias('@web') . '/web/js/jQuery-2.1.4.min.js', ["position" => $this::POS_END]);
             $this->registerJsFile(Yii::getAlias('@web') . '/web/js/bootstrap.min.js', ["position" => $this::POS_END]);
             $this->registerJsFile(Yii::getAlias('@web') . '/web/js/plugins/bxslider/jquery.bxslider.min.js', ["position" => $this::POS_END]);
+            $this->registerJsFile(Yii::getAlias('@web') . '/web/js/vendorlist.js', ["position" => $this::POS_END]);
             $this->registerJsFile(Yii::getAlias('@web') . '/web/js/site.js', ["position" => $this::POS_END]);
             $this->registerJs("$(function () {
 

@@ -224,6 +224,9 @@
   display: block;
 }
 
+/** Checkbox custom **/
+
+
 /** Content css **/
 #content {
   padding: 20px 0px 15px;
@@ -372,4 +375,68 @@
 }
 .mob-vendor-list .vendor-location {
   font-size: 12px;
+}
+
+/** app **/
+#filter-form {
+  width: 200px;
+  padding: 0px;
+}
+#filter-form h3 {
+  font-size: 12px;
+  font-family: "opensansbold";
+  line-height: 24px;
+  margin: 10px 0px;
+}
+#filter-form .form-group .input-group-addon {
+  padding: 7px;
+  background: none;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  display: table-cell;
+}
+#filter-form .form-group .input-group-addon i {
+  line-height: 10px;
+}
+#filter-form .no-padding {
+  padding: 0px;
+}
+#filter-form .custom-check {
+  display: block;
+}
+#filter-form .custom-check label {
+  margin-bottom: 0px;
+}
+#filter-form input[type="text"] {
+  display: table-cell;
+  width: 165px;
+  height: 24px;
+  border: 0px;
+  margin-left: 10px;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  border-bottom: 1px solid #ddd;
+}
+#filter-form .btn-filter {
+  width: 80px;
+  height: 32px;
+  color: #fff;
+  background: #00aeaf;
+  border: 0px;
+  margin: 0px auto;
+}
+.mob-vendor-filter,
+.mob-filter-results {
+  padding: 0px 15px;
+}
+.mob-vendor-filter {
+  width: 200px;
+  float: left;
 }
