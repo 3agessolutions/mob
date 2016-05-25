@@ -1,0 +1,280 @@
+-- phpMyAdmin SQL Dump
+-- version 4.4.10
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:8889
+-- Generation Time: May 25, 2016 at 05:12 AM
+-- Server version: 5.5.42
+-- PHP Version: 5.6.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `mob_new`
+--
+CREATE DATABASE IF NOT EXISTS `mob_new` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `mob_new`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mob_admin_users`
+--
+
+DROP TABLE IF EXISTS `mob_admin_users`;
+CREATE TABLE `mob_admin_users` (
+  `user_id` int(10) NOT NULL,
+  `user_name` varchar(128) NOT NULL,
+  `user_password` varchar(128) NOT NULL,
+  `user_email` varchar(256) NOT NULL,
+  `user_random` varchar(512) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mob_admin_users`
+--
+
+INSERT INTO `mob_admin_users` (`user_id`, `user_name`, `user_password`, `user_email`, `user_random`) VALUES
+(1, 'Adminstrator', '08693d1b520ee86156573c0da04164bd', 'admin@mob.com', 'hoAsjHH1mCleFAp80ywAzAudn4g6mXRp'),
+(2, 'superadmin', 'f9968d6f328faf204dbff8ae033b52e5', 'superadmin@mob.com', 'abA26wsL8i-T_NcMyEpfm9p1Ln0_RX7R'),
+(3, 'test', '06b1a4402ce11ab8767c0bde2c5d9f26', 'test@gmail.com', 'xaAHPxMLth-lD6pZXUNCdc7YjJ1mQxfa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mob_categories`
+--
+
+DROP TABLE IF EXISTS `mob_categories`;
+CREATE TABLE `mob_categories` (
+  `category_id` bigint(10) NOT NULL,
+  `category_title` varchar(128) NOT NULL,
+  `category_desc` varchar(512) NOT NULL,
+  `is_system` tinyint(1) NOT NULL,
+  `image` varchar(512) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mob_categories`
+--
+
+INSERT INTO `mob_categories` (`category_id`, `category_title`, `category_desc`, `is_system`, `image`) VALUES
+(1, 'Venues', 'Venues', 0, 'IaJ15YQccBpxuv_bb_LStXpK.svg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mob_categories_properties`
+--
+
+DROP TABLE IF EXISTS `mob_categories_properties`;
+CREATE TABLE `mob_categories_properties` (
+  `property_id` int(10) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `category_property` text NOT NULL,
+  `category_data_type` text NOT NULL,
+  `category_unit` text NOT NULL,
+  `category_value` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mob_categories_properties`
+--
+
+INSERT INTO `mob_categories_properties` (`property_id`, `category_id`, `category_property`, `category_data_type`, `category_unit`, `category_value`) VALUES
+(1, 1, 'Venue Name', 'T', '', ''),
+(2, 1, 'Venue Type', 'R', '', 'Ac,Non-Ac,Both'),
+(3, 1, 'Venue Space', 'R', '', 'Banquet,Lawn'),
+(4, 1, 'Venue Capacity', 'I', 'members', ''),
+(5, 1, 'Venue Area', 'D', 'sq.ft', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mob_properties_values`
+--
+
+DROP TABLE IF EXISTS `mob_properties_values`;
+CREATE TABLE `mob_properties_values` (
+  `property_value_id` int(10) NOT NULL,
+  `property_id` int(10) NOT NULL,
+  `property_section_id` int(11) DEFAULT NULL,
+  `category_id` int(10) NOT NULL,
+  `vendor_id` int(10) NOT NULL,
+  `property_value` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mob_properties_values`
+--
+
+INSERT INTO `mob_properties_values` (`property_value_id`, `property_id`, `property_section_id`, `category_id`, `vendor_id`, `property_value`) VALUES
+(1, 1, 1, 1, 1, 'Alaap I&ii Combined'),
+(2, 2, 1, 1, 1, 'Both'),
+(3, 3, 1, 1, 1, 'Banquet'),
+(4, 4, 1, 1, 1, '360'),
+(5, 5, 1, 1, 1, '4356'),
+(6, 1, 1, 1, 2, 'Binny Room'),
+(7, 2, 1, 1, 2, 'Non-Ac'),
+(8, 3, 1, 1, 2, 'Banquet'),
+(9, 4, 1, 1, 2, '120'),
+(10, 5, 1, 1, 2, '2170');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mob_services`
+--
+
+DROP TABLE IF EXISTS `mob_services`;
+CREATE TABLE `mob_services` (
+  `service_id` bigint(10) NOT NULL,
+  `service_category_id` bigint(10) NOT NULL,
+  `service_title` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mob_vendor_location`
+--
+
+DROP TABLE IF EXISTS `mob_vendor_location`;
+CREATE TABLE `mob_vendor_location` (
+  `vendor_location_id` bigint(10) NOT NULL,
+  `vendor_latitude` double NOT NULL,
+  `vendor_longitude` double NOT NULL,
+  `vendor_building_no` smallint(10) NOT NULL,
+  `vendor_street` varchar(128) NOT NULL,
+  `vendor_id` bigint(10) NOT NULL,
+  `vendor_locality` varchar(64) NOT NULL,
+  `vendor_city` varchar(128) NOT NULL,
+  `vendor_state` varchar(128) NOT NULL,
+  `vendor_country` varchar(128) NOT NULL,
+  `vendor_pincode` int(6) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mob_vendor_location`
+--
+
+INSERT INTO `mob_vendor_location` (`vendor_location_id`, `vendor_latitude`, `vendor_longitude`, `vendor_building_no`, `vendor_street`, `vendor_id`, `vendor_locality`, `vendor_city`, `vendor_state`, `vendor_country`, `vendor_pincode`) VALUES
+(1, 12.9845950166, 80.17486342, 1, 'G.S.T Road', 1, 'Meenambakkam', 'Chennai', 'Tamilnadu', 'India', 630003),
+(2, 11.3400250776, 77.7108800411, 12, 'rajaji street', 2, 'West Mambalam', 'Chennai', 'tamilnadu', 'india', 630003);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mob_vendor_master`
+--
+
+DROP TABLE IF EXISTS `mob_vendor_master`;
+CREATE TABLE `mob_vendor_master` (
+  `vendor_id` bigint(10) NOT NULL,
+  `vendor_title` varchar(256) NOT NULL,
+  `vendor_description` varchar(512) NOT NULL,
+  `vendor_categories` varchar(128) NOT NULL,
+  `vendor_phone` varchar(20) NOT NULL,
+  `vendor_email` varchar(128) NOT NULL,
+  `vendor_url` varchar(256) NOT NULL,
+  `vendor_fb` varchar(512) NOT NULL,
+  `vendor_twitter` varchar(512) NOT NULL,
+  `vendor_google` varchar(512) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mob_vendor_master`
+--
+
+INSERT INTO `mob_vendor_master` (`vendor_id`, `vendor_title`, `vendor_description`, `vendor_categories`, `vendor_phone`, `vendor_email`, `vendor_url`, `vendor_fb`, `vendor_twitter`, `vendor_google`) VALUES
+(1, 'Trident Chennai', 'sadas', '1', '9876543210', 'djfask@lkdfd.com', 'http://www.fs.com', 'http://www.fs.com', 'http://www.fs.com', 'http://www.fs.com'),
+(2, 'Vivanta By Taj-Connemara', 'dafsdaf', '1', '9876543210', 'djfask@lkdfd.com', 'http://www.fs.com', 'http://www.fs.com', 'http://www.fs.com', 'http://www.fs.com');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `mob_admin_users`
+--
+ALTER TABLE `mob_admin_users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `user_name` (`user_name`),
+  ADD UNIQUE KEY `user_email` (`user_email`);
+
+--
+-- Indexes for table `mob_categories`
+--
+ALTER TABLE `mob_categories`
+  ADD PRIMARY KEY (`category_id`),
+  ADD UNIQUE KEY `category_title` (`category_title`);
+
+--
+-- Indexes for table `mob_categories_properties`
+--
+ALTER TABLE `mob_categories_properties`
+  ADD PRIMARY KEY (`property_id`);
+
+--
+-- Indexes for table `mob_properties_values`
+--
+ALTER TABLE `mob_properties_values`
+  ADD PRIMARY KEY (`property_value_id`);
+
+--
+-- Indexes for table `mob_vendor_location`
+--
+ALTER TABLE `mob_vendor_location`
+  ADD PRIMARY KEY (`vendor_location_id`),
+  ADD KEY `fk_vendor_id` (`vendor_id`);
+
+--
+-- Indexes for table `mob_vendor_master`
+--
+ALTER TABLE `mob_vendor_master`
+  ADD PRIMARY KEY (`vendor_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `mob_admin_users`
+--
+ALTER TABLE `mob_admin_users`
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `mob_categories`
+--
+ALTER TABLE `mob_categories`
+  MODIFY `category_id` bigint(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `mob_categories_properties`
+--
+ALTER TABLE `mob_categories_properties`
+  MODIFY `property_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `mob_properties_values`
+--
+ALTER TABLE `mob_properties_values`
+  MODIFY `property_value_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `mob_vendor_location`
+--
+ALTER TABLE `mob_vendor_location`
+  MODIFY `vendor_location_id` bigint(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `mob_vendor_master`
+--
+ALTER TABLE `mob_vendor_master`
+  MODIFY `vendor_id` bigint(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
