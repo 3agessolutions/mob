@@ -4,8 +4,11 @@ return [
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=localhost;dbname=mob_new;',
     //'dsn' => 'mysql:host=localhost;port=8889;dbname=mob_new;unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock',
+    // 'dsn' => 'mysql:host=localhost;dbname=idoappzc_marriage;',
     'username' => 'mobnew',
     'password' => 'mob@123',
+    // 'username' => 'idoappzc_madmin',
+    // 'password' => '5QtmoX.o~!.F',
     'charset' => 'utf8',
 ];
 

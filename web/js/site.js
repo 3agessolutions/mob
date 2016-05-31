@@ -3,7 +3,7 @@ var mob = {
     //mob.showLoader();
     //mob.common();
     mob.hideLoader();
-    vendorFilter.init();
+    // vendorFilter.init();
   },
   showLoader: function() {
     $('#loader').show();

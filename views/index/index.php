@@ -4,7 +4,7 @@
 ?>
 <div class="mob-banner">
   <div class="mob-banner-inner">
-    <img src="<?= Yii::getAlias('@web') . '/files/banner/banner_1.jpg' ?>" />
+    <img src="<?= Yii::getAlias('@web') . '/files/banner/banner_org.jpg' ?>" />
   </div>
   <div class="mob-banner-overlay"></div>
   <div class="mob-banner-top">

@@ -23,35 +23,12 @@
       <div class="mob-vendor-filter">
         <form action="#" method="post" id="filter-form">
             <input type="hidden" name="<?=Yii::$app->request->csrfParam?>" value="<?=Yii::$app->request->getCsrfToken()?>" />
-            <!-- <div class="form-group no-padding">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                <input class="form-control" type="text" name="vendor_locatoin" value=""/>
-              </div>
-            </div> -->
-            <!-- <h3>Distance</h3>
-            <div class="form-group">
-              <label class="custom-check">
-                <input type="radio" id="vendor_distance_1" name="vendor_distance" value="1"/>
-                <label for="vendor_distance_1">1 km</label>
-              </label>
-              <label class="custom-check">
-                <input type="radio" id="vendor_distance_2" name="vendor_distance" value="5"/>
-                <label for="vendor_distance_2">5 km</label>
-              </label>
-              <label class="custom-check">
-                <input type="radio" id="vendor_distance_3" name="vendor_distance" value="10"/>
-                <label for="vendor_distance_3">10 km</label>
-              </label>
-              <label class="custom-check">
-                <input type="radio" id="vendor_distance_4" name="vendor_distance" value="15"/>
-                <label for="vendor_distance_4">15 km</label>
-              </label>
-              <label class="custom-check">
-                <input type="radio" id="vendor_distance_5" name="vendor_distance" value="15+"/>
-                <label for="vendor_distance_5">15 km +</label>
-              </label>
-            </div> -->
+
+            <h3>Enter Location</h3>
+            <div class="filter-by-location">
+                <input type="text" class="form-control" name="vendor_location" value="" id="filter-location"/>
+                <input type="hidden" class="form-control" name="vendor_cordinates" id="search-cordinates"/>
+            </div>
             <?php foreach ($filterOptions as $value) { ?>
                 <h3><?= $value['filter_name'] ?><br/><?= $value['filter_unit'] != '' ? '(' . $value['filter_unit'] . ')' : '' ?></h3>
                 <div class="form-group">
@@ -97,3 +74,6 @@
     </div>
   </div>
 </div>
+<?php
+
+?>
