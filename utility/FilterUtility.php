@@ -26,6 +26,7 @@ class FilterUtility {
     $this->vendors = array();
     $this->filters = array();
     $this->filterObj = $reqObj;
+    $this->locationObj = array();
 
     $categoryId = 1;
     $categoryProperties = CategoryProperty::find()->where(['category_id' => $categoryId])->all();
@@ -36,11 +37,18 @@ class FilterUtility {
 
     foreach ($this->filterObj as $name => $filterProperty) {
       if($name != '_csrf') {
-        array_push($this->filters, ['property_id' => str_replace('property_','',$name), 'property_value' => $filterProperty,
-          'property_type' => $categories[intval(str_replace('property_','',$name))]]);
+        if($name != 'vendor_cordinates' && $name != 'vendor_radius' && $name != 'vendor_location') {
+          array_push($this->filters, ['property_id' => str_replace('property_','',$name), 'property_value' => $filterProperty,
+            'property_type' => $categories[intval(str_replace('property_','',$name))]]);
+        } else if ($name == 'vendor_radius') {
+          $this->locationObj['radius'] = $filterProperty;
+        } else if ($name == 'vendor_cordinates') {
+          $this->locationObj['coordinates'] = $filterProperty;
+        }
       }
     }
 
+    print_r($this->locationObj);
     $this->getVendorValues($this->filters);
   }
 
@@ -75,58 +83,83 @@ class FilterUtility {
   }
 
   private function getVendorValues($valuesAry) {
-    $str = $this->prepareQuery($valuesAry);
-    $connection = Yii::$app->getDb();
-    $query = $connection->createCommand($str)->queryAll();
+    if(count($valuesAry) > 0) {
+      $str = $this->prepareQuery($valuesAry);
+      $connection = Yii::$app->getDb();
+      $query = $connection->createCommand($str)->queryAll();
 
-    $vendors = array();
-    foreach ($query as $key => $value) {
-      if(!isset($vendors[$value['vendor_id']])) {
-        $vendors[$value['vendor_id']] = array();
+      $vendors = array();
+      foreach ($query as $key => $value) {
+        if(!isset($vendors[$value['vendor_id']])) {
+          $vendors[$value['vendor_id']] = array();
+        }
+        $vendors[$value['vendor_id']][$value['property_id']] = $value['property_value'];
       }
-      $vendors[$value['vendor_id']][$value['property_id']] = $value['property_value'];
-    }
 
-    $filterMembers = array();
-    foreach ($vendors as $id => $props) {
-      $bValid = true;
-      foreach ($valuesAry as $key => $property) {
-        if (isset($props[$property['property_id']])) {
-          if ($property['property_type'] != 'I') {
-            if ($property['property_value'] != $props[$property['property_id']]) {
-              $bValid = false;
-              break;
-            }
-          } else {
-            $values = explode('-', $property['property_value']);
-            if(count($values) == 2) {
-              if ($props[$property['property_id']] < $values[0] || $props[$property['property_id']] > $values[1]) {
+      $filterMembers = array();
+      foreach ($vendors as $id => $props) {
+        $bValid = true;
+        foreach ($valuesAry as $key => $property) {
+          if (isset($props[$property['property_id']])) {
+            if ($property['property_type'] != 'I') {
+              if ($property['property_value'] != $props[$property['property_id']]) {
                 $bValid = false;
                 break;
               }
             } else {
-              $value = str_replace('+', '', $property['property_value']);
-              if ($props[$property['property_id']] < $value) {
-                $bValid = false;
-                break;
+              $values = explode('-', $property['property_value']);
+              if(count($values) == 2) {
+                if ($props[$property['property_id']] < $values[0] || $props[$property['property_id']] > $values[1]) {
+                  $bValid = false;
+                  break;
+                }
+              } else {
+                $value = str_replace('+', '', $property['property_value']);
+                if ($props[$property['property_id']] < $value) {
+                  $bValid = false;
+                  break;
+                }
               }
             }
+          } else {
+            $bValid = false;
+            break;
           }
-        } else {
-          $bValid = false;
-          break;
+        }
+
+        if ($bValid) {
+          $filterMembers[] = $id;
         }
       }
-
-      if ($bValid) {
-        $filterMembers[] = $id;
-      }
+      $this->prepareVendorArray($filterMembers, false);
+    } else {
+      $this->prepareVendorArray(null, true);
     }
-    $this->prepareVendorArray($filterMembers);
+
   }
 
-  private function prepareVendorArray($vendorIds) {
-    $vendors = Vendors::find()->where(['vendor_id' => $vendorIds])->all();
+  private function prepareVendorArray($vendorIds, $bAll) {
+    if($bAll)
+      $vendors = Vendors::find()->all();
+    else
+      $vendors = Vendors::find()->where(['vendor_id' => $vendorIds])->all();
     $this->vendors = $vendors;
+    $this->prepareVendorsFromLocation();
+  }
+
+  private function prepareVendorsFromLocation() {
+    $coordinateAry = explode('_', $this->locationObj['coordinates']);
+    $latitude = $coordinateAry[1];
+    $longitude = $coordinateAry[2];
+    $distance = $this->locationObj['radius'];
+
+    $str = 'SELECT vendor_id, (3959 * acos(cos(radians(' . $latitude . ')) * cos(radians(vendor_latitude)) * cos(radians(vendor_longitude) - radians(' . $longitude . '))' .
+      '+ sin(radians(' . $latitude . ')) * sin(radians(vendor_latitude)))) AS distance FROM mob_vendor_location HAVING distance < ' . $distance . '  ORDER BY distance;';
+
+    print_r($str);
   }
 }
+
+// SELECT mob_vendor_master.*, mob_vendor_location.*, (3959 * acos(cos(radians(13.0826802)) * cos(radians(mob_vendor_location.vendor_latitude)) * cos(radians(mob_vendor_location.vendor_longitude) - radians(80.27071840000008))+ sin(radians(13.0826802)) * sin(radians(mob_vendor_location.vendor_latitude)))) AS distance FROM mob_vendor_location
+// INNER JOIN mob_vendor_master on mob_vendor_master.vendor_id = mob_vendor_location.vendor_id
+// HAVING distance < 50 ORDER BY distance

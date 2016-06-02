@@ -30,8 +30,7 @@
   background: none;
   margin: 20px 10px 0px 0px;
 }
-.navbar-default li input:focus,
-.navbar-default li input:active {
+.navbar-default li input:focus, .navbar-default li input:active {
   border: none;
   outline: none;
   color: #fff;
@@ -105,12 +104,14 @@
   color: #fff;
   text-shadow: 2px 2px 4px #000000;
 }
+
 /*.page-inner .mob-banner {
   height: 250px;
 }
 .page-inner .mob-banner-inner {
   height: 250px;
 }*/
+
 #mob-search-vendor {
   background: rgba(0, 0, 0, 0.6);
   padding: 15px;
@@ -121,8 +122,7 @@
   border: 0px;
   font-size: 14px;
 }
-#mob-search-vendor input:active,
-#mob-search-vendor input:focus {
+#mob-search-vendor input:active, #mob-search-vendor input:focus {
   outline: 0;
   border: 0;
 }
@@ -130,7 +130,6 @@
   background: rgba(154, 165, 177, 0.5);
   color: #fff;
 }
-
 #mob-search-vendor .form-text::-webkit-input-placeholder {
   color: #ddd;
 }
@@ -143,7 +142,6 @@
 #mob-search-vendor .form-text:-ms-input-placeholder {
   color: #ddd;
 }
-
 .mob-banner-top ul {
   list-style: none;
   text-align: center;
@@ -206,6 +204,7 @@
 }
 
 /* Breadcrum */
+
 .mob-bread-crum {
   margin: 10px 0px;
   border-bottom: 1px solid #f2f2f2;
@@ -228,11 +227,11 @@
 
 
 /** Content css **/
+
 #content {
   padding: 20px 0px 15px;
 }
-#content h1, #content h2, #content h3,
-#content h4, #content h5, #content h6{
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
   font-family: "OpenSansSemiBold";
   margin: 0px;
   color: #333;
@@ -256,8 +255,7 @@
   margin: 10px 0px;
   color: #333;
 }
-.mob-title:before,
-.mob-title:after {
+.mob-title:before, .mob-title:after {
   content: "";
   display: inline-block;
   height: 1px;
@@ -279,8 +277,8 @@
   bottom: 20px;
   left: 50%;
   margin: 40px 0px 0px -315px;
-  background: rgb(0,0,0);
-  background: rgba(0,0,0,0.4);
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.4);
 }
 #mob-vendor-list ul {
   text-align: center;
@@ -298,7 +296,7 @@
   border-right: 0px;
 }
 #mob-vendor-list li:hover {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
 }
 #mob-vendor-list li a {
   display: block;
@@ -320,8 +318,8 @@
   padding-top: 0px;
 }
 
-
 /** Vendor service styles **/
+
 #vendor-service {
   width: 840px;
   margin: 0px auto;
@@ -340,9 +338,10 @@
 }
 
 /** Vendor list **/
+
 .mob-vendor-list {
   list-style: none;
-  margin: 15px 0px;
+  margin: 0px 0px 15px;
 }
 .mob-vendor-list li {
   width: 150px;
@@ -366,8 +365,7 @@
 .mob-vendor-list .vendor-info {
   padding: 0px 10px;
 }
-.mob-vendor-list .vendor-title,
-.mob-vendor-list .vendor-location  {
+.mob-vendor-list .vendor-title, .mob-vendor-list .vendor-location {
   font-size: 14px;
   line-height: 20px;
   padding-top: 5px;
@@ -378,15 +376,25 @@
 }
 
 /** app **/
+
 #filter-form {
   width: 200px;
   padding: 0px;
+  border: 1px solid #e2e2e2;
 }
 #filter-form h3 {
+  background: #eee;
   font-size: 12px;
   font-family: "opensansbold";
   line-height: 24px;
-  margin: 10px 0px;
+  padding: 0px 10px;
+  margin: 15px 0px;
+}
+#filter-form h3:first-of-type {
+  margin-top: 0px;
+}
+#filter-form .form-group {
+  padding: 0px 10px;
 }
 #filter-form .form-group .input-group-addon {
   padding: 7px;
@@ -410,32 +418,55 @@
 #filter-form .custom-check label {
   margin-bottom: 0px;
 }
+#filter-form .filter-by-location {
+  padding: 0px 10px;
+}
 #filter-form input[type="text"] {
   display: table-cell;
-  width: 165px;
+  width: 100%;
   height: 24px;
-  border: 0px;
+  padding: 0px 5px;
+  border: 1px solid #e2e2e2;
+  border-width: 0px 0px 1px 0px;
   border-radius: 0px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  border-bottom: 1px solid #ddd;
 }
 #filter-form .btn-filter {
   width: 80px;
   height: 32px;
+  display: block;
   color: #fff;
   background: #00aeaf;
   border: 0px;
-  margin: 0px auto;
+  margin: 0px auto 10px;
 }
-.mob-vendor-filter,
-.mob-filter-results {
+.mob-vendor-filter, .mob-filter-results {
   padding: 0px 15px;
 }
 .mob-vendor-filter {
-  width: 200px;
+  width: 230px;
   float: left;
+}
+#filter-form .noUi-background {
+  background: #E2E2E2;
+}
+#filter-form .noUi-horizontal {
+  height: 4px;
+  margin-top: 20px;
+  border: 0px none;
+  box-shadow: none;
+}
+#filter-form .noUi-horizontal .noUi-handle {
+  width: 15px;
+  height: 15px;
+  left: -6px;
+  top: -6px;
+  border-radius: 50%;
+}
+#filter-form .noUi-handle:after, #filter-form .noUi-handle:before {
+  display: none;
 }

@@ -61,6 +61,7 @@
             $this->registerJsFile(Yii::getAlias('@web') . '/web/js/jQuery-2.1.4.min.js', ["position" => $this::POS_END]);
             $this->registerJsFile(Yii::getAlias('@web') . '/web/js/bootstrap.min.js', ["position" => $this::POS_END]);
             $this->registerJsFile(Yii::getAlias('@web') . '/web/js/plugins/bxslider/jquery.bxslider.min.js', ["position" => $this::POS_END]);
+            $this->registerJsFile(Yii::getAlias('@web') . '/web/js/plugins/rangeslider/nouislider.min.js', ["position" => $this::POS_END]);
             $this->registerJsFile(Yii::getAlias('@web') . '/web/js/vendorlist.js', ["position" => $this::POS_END]);
             $this->registerJsFile('https://maps.googleapis.com/maps/api/js?key=AIzaSyDyKy7OEPb1e5Nh8CqvSIjgvGQFM9PKMjU&libraries=places&callback=vendorFilter.locationAutocomplete', ['position' => \yii\web\View::POS_END]);
             $this->registerJsFile(Yii::getAlias('@web') . '/web/js/site.js', ["position" => $this::POS_END]);

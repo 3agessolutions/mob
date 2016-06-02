@@ -24,10 +24,19 @@
         <form action="#" method="post" id="filter-form">
             <input type="hidden" name="<?=Yii::$app->request->csrfParam?>" value="<?=Yii::$app->request->getCsrfToken()?>" />
 
-            <h3>Enter Location</h3>
+            <h3>Location</h3>
             <div class="filter-by-location">
                 <input type="text" class="form-control" name="vendor_location" value="" id="filter-location"/>
                 <input type="hidden" class="form-control" name="vendor_cordinates" id="search-cordinates"/>
+                <select name="vendor_radius" style="margin-top: 10px;">
+                  <option value="5">5 km</option>
+                  <option value="10">10 km</option>
+                  <option value="15">15 km</option>
+                  <option value="25">25 km</option>
+                  <option value="50">50 km</option>
+                  <option value="100">100 km</option>
+                </select>
+                <!-- <div id="range-slider"></div> -->
             </div>
             <?php foreach ($filterOptions as $value) { ?>
                 <h3><?= $value['filter_name'] ?><br/><?= $value['filter_unit'] != '' ? '(' . $value['filter_unit'] . ')' : '' ?></h3>
